@@ -44,3 +44,6 @@ docs/前端对接说明.md
 
 # legacy nested tests (copied to tests/)
 tests/tests/
+
+# 内部设计稿
+docs/情报富化深化设计.md

@@ -42,9 +42,9 @@ npm run preview
 
 ## 对接形态
 
-- **形态 A（答辩用，同端口）**：`npm run build`（`.env.production` 自动切真实模式）→ `uv run python scripts/api.py` → 打开 `http://localhost:8000`
-- **形态 B（开发联调）**：`npm run dev`（5173）+ vite proxy 已配置 `/ask /search /health /related` → `http://127.0.0.1:8000`；dev 默认 mock
-- **形态 C（远程）**：设 `VITE_API_BASE=http://<后端IP>:8000` 后 `npm run dev`
+- **模式 A（生产，同端口）**：`npm run build`（`.env.production` 自动切真实模式）→ `uv run python scripts/api.py` → 打开 `http://localhost:8000`
+- **模式 B（开发联调）**：`npm run dev`（5173）+ vite proxy 已配置 `/ask /search /health /related` → `http://127.0.0.1:8000`；dev 默认 mock
+- **模式 C（远程）**：设 `VITE_API_BASE=http://<后端IP>:8000` 后 `npm run dev`
 - **冷启动**：后端首问需 ~40s（模型加载），ask/search 超时已设 90s
 
 ## Mock 模式开关

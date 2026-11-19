@@ -60,7 +60,7 @@ cp config.example.json config.json   # 采集配置
 
 ### 3. 数据与模型
 
-本仓库**不包含** `data/`（约 1.3 GB）与 `models/`（约 9.7 GB）——它们不适合放进 GitHub。
+数据与模型文件体积较大，未纳入版本库。运行前请准备：
 
 - **嵌入模型**：下载 `WeMM-Embedding-4B` 到 `models/WeMM-Embedding-4B`，或设置 `WEM_MODEL_PATH` 指向模型目录；
 - **数据**：首次运行可执行一次性回填，或使用单独发布的数据包：
@@ -125,4 +125,4 @@ aegis-intel/
 
 ## License
 
-License 待项目维护者确认。
+本项目尚未确定开源许可证，默认保留所有权利；许可证确定后将在此更新。
