@@ -3,8 +3,6 @@
 .env.*
 !.env.example
 !frontend/.env.production.example
-frontend/.env
-frontend/.env.*
 
 # Local runtime config (template: config.example.json)
 config.json
@@ -50,3 +48,20 @@ tests/tests/
 
 # 内部设计稿
 docs/情报富化深化设计.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Python tooling caches
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Git temp files
+*.tmp.*
