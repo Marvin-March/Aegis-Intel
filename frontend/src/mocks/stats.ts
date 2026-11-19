@@ -59,7 +59,7 @@ export function mockStats(): StatsResponse {
       article_sources: [
         { source: 'freebuf', count: 512 }, { source: '先知社区', count: 388 },
         { source: 'seebug', count: 245 }, { source: '腾讯安全应急响应中心', count: 156 },
-        { source: '奇安信攻防社区', count: 121 }, { source: '安全客', count: 98 },
+        { source: '攻防社区', count: 121 }, { source: '安全客', count: 98 },
         { source: 'The Hacker News', count: 70 }, { source: '补天平台', count: 64 },
         { source: '青藤云安全', count: 52 }, { source: '绿盟科技', count: 47 },
         { source: '嘶吼', count: 41 }, { source: 'FreeBuf企业版', count: 33 },

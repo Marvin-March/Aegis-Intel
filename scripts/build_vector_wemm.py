@@ -2,8 +2,8 @@
 """WeMM-Embedding 向量建库：data/chunks.jsonl → data/vector_store (Chroma)。
 
 前置：chunks.jsonl 由 scripts/preprocess_export.py 产出（剥头/清噪/切块已就绪，
-交付时已生成，export 数据未重新导出过就不用重跑）。设计规范见 docs/向量化设计-怎么搭.md，
-运行手册见 docs/向量化运行手册-WeMM.md。
+已有数据包时已生成；export 数据未重新导出过则无需重跑）。
+架构说明见 docs/architecture.md，部署说明见 docs/deployment.md。
 
 - 嵌入模型默认 tencent/WeMM-Embedding-9B（bf16 需 ≥24GB 显存；8GB 卡用 --model ...2B）
 - 查询/文档指令不对称：语料走 encode_document（本脚本），检索时必须走 encode_query

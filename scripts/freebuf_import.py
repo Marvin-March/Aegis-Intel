@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-freebuf_import.py —— 导入队友 FreeBufAICrawler 采集成果（973 篇元数据 + 已转 md 的正文）
+freebuf_import.py —— 导入 FreeBufAICrawler 采集成果（973 篇元数据 + 已转 md 的正文）
 
-处理"其他社区没有深抓文章"的缺口：FreeBuf 是第二个深抓社区（队友爬虫产出），
+处理"其他社区没有深抓文章"的缺口：FreeBuf 是第二个深抓社区（由 FreeBufAICrawler 产出），
 本脚本把它合入统一库：元数据全量、正文取 ai_md/<id>.md（剥 YAML front-matter）、
 付费文章只留元数据（status=no_body + 付费标签）、原始 md 归档到 data/raw/freebuf/。
 
@@ -55,7 +55,7 @@ def main():
             shutil.copy2(md_path, raw_dir / f"{a['id']}.md")   # 源头归档
 
         if store.seen(url):
-            # 已有记录（如污染清洗后 no_body）→ 用队友爬虫的 md 回填正文
+            # 已有记录（如污染清洗后 no_body）→ 用 FreeBufAICrawler 的 md 回填正文
             if content_md and len(content_md) >= 300:
                 cur = store.db.execute("SELECT status, length(content_md) FROM records WHERE url=?", (url,)).fetchone()
                 if cur and (cur[0] != "enriched" or cur[1] < 300):

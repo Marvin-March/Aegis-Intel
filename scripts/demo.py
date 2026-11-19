@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-demo.py —— 答辩演示脚本（任务书 §三·第 6 步）
+demo.py —— 问答演示脚本
 
 三连问演示流，展示三类问题分层路由：
   1. 点查：  "CVE-2026-59822 是什么？"      → SQL 直查 enrich_json 卡片

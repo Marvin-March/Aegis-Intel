@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-nightly_pipeline.py —— 定时全链路包装（计划任务 QAX-Intel-Full 的真实执行体）
+nightly_pipeline.py —— 定时全链路包装（计划任务 Aegis-Intel-Full 的真实执行体）
 
 为什么要有这层包装：collect_full.py 第 ④ 阶段（向量增量）要加载 8GB 嵌入模型，
 与本机常驻 API（同样占 ~8GB）在 15.3GB 物理内存上必然冲突（2026-10-15 段错误实测）。

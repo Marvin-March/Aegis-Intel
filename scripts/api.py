@@ -445,7 +445,7 @@ def collect(req: CollectRequest):
 
 
 # 前端静态托管（必须放在所有 API 路由注册之后，否则 mount("/") 会吞掉 /ask /health 等端点）：
-# 队友 build 产物放 frontend/dist/ 后，浏览器打开 http://localhost:8000 即是完整系统
+# 前端构建产物输出到 frontend/dist/ 后，浏览器打开 http://localhost:8000 即可访问完整系统
 _frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 if _frontend_dist.exists():
     app.mount("/", StaticFiles(directory=str(_frontend_dist), html=True), name="frontend")

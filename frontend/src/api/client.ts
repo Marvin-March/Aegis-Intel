@@ -76,7 +76,7 @@ async function fetchAPI<T>(
 
 const CVE_RE = /CVE-\d{4}-\d{4,7}/;
 
-// meta.cve_ids 后端是字符串（单个/逗号/空格分隔），解析并滤脏（任务书 §4.3.5 口径）
+// meta.cve_ids 后端是字符串（单个/逗号/空格分隔），解析并滤脏（接口约定）
 function parseCveIds(raw: unknown): string[] {
   if (Array.isArray(raw)) {
     return raw.filter((v): v is string => typeof v === 'string' && CVE_RE.test(v));

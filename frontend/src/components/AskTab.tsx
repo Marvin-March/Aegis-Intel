@@ -21,7 +21,7 @@ import AskHero from './AskHero';
 import { toast } from './Toast';
 import { useDemoPlayer } from '../hooks/useDemoPlayer';
 
-// 预置快捷问题（对接说明 §三，答辩不冷场）
+// 预置快捷问题（便于演示快速开始）
 const quickChips = [
   { label: 'vLLM 已知漏洞', query: 'vLLM 有哪些已知漏洞？' },
   { label: 'CVE-2026-59822', query: 'CVE-2026-59822 是什么漏洞？' },
@@ -291,7 +291,7 @@ export default function AskTab() {
         history,
       };
 
-      // 阶段一：检索（路由 + top-k 分数条 + 卡片先出，答辩亮点先行）
+      // 阶段一：检索（路由 + top-k 分数条 + 卡片先出）
       searchResult = await searchOnly(req, { forceMock: opts?.forceMock });
       const assistantMsg: Message = {
         id: assistantId,

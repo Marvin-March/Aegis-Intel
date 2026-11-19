@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-qa.py —— 问答层（任务书 §三·第 5 步 / §四.5）
+qa.py —— 问答层入口
 
 流程：search() 检索 → 拼 prompt（卡片在前 + 文本块带引用 + 拒答条款）→ LLM 生成
      → fabricate_check 拦编造（重生成一次 → 仍编则剔除）→ 返回最终答案。

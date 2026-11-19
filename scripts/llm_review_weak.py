@@ -4,7 +4,7 @@
 llm_review_weak.py —— B2 最小版：用 LLM 复核 vuln_meta 里的 weak AI 信号
 
 背景：规则匹配的 ai_signal='weak'（仅描述词命中）误报率 30-40%（审计实测），
-     把近千条非 AI CVE 带进"AI 库"会在答辩时穿帮。本脚本逐条让 LLM 复核，
+     把近千条非 AI CVE 带进"AI 库"会造成明显误报。本脚本逐条让 LLM 复核，
      裁决写回 vuln_meta.llm_ai_related，同时更新 ai_related 作为权威过滤列。
 
 双兼容：GLM（智谱，glm-4-flash 免费，推荐）/ DeepSeek，均为 OpenAI 兼容接口。

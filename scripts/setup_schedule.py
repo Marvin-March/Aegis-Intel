@@ -3,20 +3,20 @@
 """
 setup_schedule.py —— 一条命令把"每日全链路采集"注册到当前机器（Windows 计划任务）
 
-这是自动化在交付代码里的体现：collect_full.py 是逻辑本体（采集→富化→切块→向量增量，
-跑完新数据即可被问答命中），本脚本把它接进操作系统的调度器。换机器 / 评委环境部署时：
+这是自动化在部署代码中的体现：collect_full.py 是逻辑本体（采集→富化→切块→向量增量，
+跑完新数据即可被问答命中），本脚本把它接进操作系统的调度器。换机器或部署到新环境时：
 
     uv sync                                  # ① 装依赖
     uv run playwright install chromium       # ② 装浏览器内核（采集用）
     copy .env.example .env                   # ③ 填 GLM_API_KEY（LLM 步骤用，可选）
     uv run python scripts/setup_schedule.py  # ④ 注册每日定时（本脚本）
 
-★ 提交包自带成品数据（index.sqlite + export/ + vector_store/），评委解压即可问答，
+★ 数据包可自带成品数据（index.sqlite + export/ + vector_store/），解压后即可问答，
   知识库不为空；定时任务接上后只在成品库基础上做每日增量（checkpoint 幂等）。
-  --mode backfill 仅限"空库从零部署"场景，评委/交包路径不需要也不会跑到。
+  --mode backfill 仅用于"空库从零部署"场景；已有数据包时无需执行。
 
 注册内容（2026-10-16 起执行体改为 nightly_pipeline.py）：
-    QAX-Intel-Full  每天 05:00  nightly_pipeline.py
+    Aegis-Intel-Full  每天 05:00  nightly_pipeline.py
         = 停 API（向量化需 ~8GB 内存，与常驻 API 在 15.3GB 机器上冲突，2026-10-15 段错误实测）
         → collect_full.py：run_daily（四采集器并行+补正文+导出）→ enrich_daily（复核→富化→清洗→体检）
           → preprocess_corpus（切块）→ build_vector_wemm（向量增量，只嵌新块）
@@ -53,7 +53,7 @@ TASKS = [
     # 执行体 2026-10-16 起为 nightly_pipeline.py：停 API → collect_full 四阶段 → 起 API
     # （向量化 8GB 内存与常驻 API 冲突，必须错峰——详见 nightly_pipeline.py 模块注释）
     # 05:00 起跑（2026-10-16 用户改定）：05:45 前全链路收工，06:00 后问答即可命中新数据
-    ("QAX-Intel-Full", "05:00", "scripts/nightly_pipeline.py"),
+    ("Aegis-Intel-Full", "05:00", "scripts/nightly_pipeline.py"),
 ]
 LOG_FILE = "data\\runs\\logs\\scheduled_full.log"
 

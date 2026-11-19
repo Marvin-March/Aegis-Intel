@@ -5,7 +5,7 @@ run_daily.py —— 采集层统一入口（自动化 + 手动触发 + 一次性
 
 三种模式：
   daily   每日增量（默认）：四采集器并行（增量判重）→ deep_fill 补正文 → 运行报告+心跳
-  manual  手动触发：与 daily 相同，报告中标记 trigger=manual（给前端"立即采集"按钮/答辩演示用）
+  manual  手动触发：与 daily 相同，报告中标记 trigger=manual（供前端“立即采集”使用）
   backfill 一次性回填（部署后跑一次）：先知全量翻页、RSS 回看 90 天、NVD 窗口放宽到 120 天、
           deep_fill 补全部空正文。跑一次即可，日常切回 daily。
 

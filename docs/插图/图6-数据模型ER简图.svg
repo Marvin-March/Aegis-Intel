@@ -36,7 +36,7 @@
   <rect x="660" y="60" width="480" height="36" rx="8" fill="#1f3a5f"/>
   <text x="900" y="84" text-anchor="middle" fill="#ffffff" font-size="13.5" font-weight="bold">vuln_meta（漏洞富化 · 26,677 CVE）</text>
   <g font-size="11" fill="#1f2937">
-    <text x="676" y="120">🔑 cve_id　cvss · severity · kev · epss（评分四件套）</text>
+    <text x="676" y="120">🔑 cve_id　cvss · severity · kev · epss（评分四项）</text>
     <text x="676" y="143">ai_related · ai_signal · llm_ai_related（AI 判定三级）</text>
     <text x="676" y="166">affected_component（组件点查键）· affected_versions · cpes</text>
     <text x="676" y="189">enrich_json（三级裁决产出）· summary_zh · updated_at</text>

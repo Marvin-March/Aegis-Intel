@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检索冒烟 10 题：任务书 §三·第 4 步。查询向量库（4B/2560），报告命中域与排序。
+"""检索冒烟 10 题。查询向量库（4B/2560），报告命中域与排序。
 
 模型加载优先级：4B int8 量化(8GB 卡可跑) → bf16 CPU 兜底（每条查询慢但可用）。
 查询必须 encode_query；语料侧是 encode_document 建的库——两侧前缀不同属预期。
@@ -153,7 +153,7 @@ def main() -> int:
             print(f"   {h['score']:.3f} [{h['meta']['domain']}/{h['meta']['source']}] "
                   f"{h['meta']['title'][:66]}")
 
-    print(f"\n=== 总命中: {hit_count}/10（任务书验收线 8/10）===")
+    print(f"\n=== 总命中: {hit_count}/10（通过标准 8/10）===")
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({"device": device, "store": args.store,

@@ -149,7 +149,7 @@ ls data/export/ -R | grep -c "\.md$"
 | 3 | md 可读性 | 打开 data/export/ 3 个文件 | front-matter 齐全、正文干净 |
 | 4 | 敏感信息 | `grep -r "api_key\|token\|password" data/export/` | 0 命中 |
 | 5 | 数据时间线 | 各源 publish_time min/max 合理 | 无未来、无异常远古 |
-| 6 | 合规声明 | README/运行环境说明 已含"仅公开数据/低频/比赛用途" | 已含 |
+| 6 | 合规声明 | README/部署文档 已含"仅公开数据/低频/合规研究用途" | 已含 |
 
 ---
 

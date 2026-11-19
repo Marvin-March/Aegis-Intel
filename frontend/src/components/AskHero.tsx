@@ -6,7 +6,7 @@ interface Props {
 }
 
 // 问答区顶部：仅保留演示模式入口（右上角一行小字），不再展示统计徽章——
-// 删掉 VECTORS/BENCH/COST（后两项是硬编码假数据，答辩现场反而露怯），
+// 删掉 VECTORS/BENCH/COST（后两项是硬编码假数据，演示时容易造成误导），
 // 给问答区腾出整块垂直空间。
 export default function AskHero({ demo, onEnterDemo }: Props) {
   return (

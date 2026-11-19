@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-check_credentials.py —— 凭据健康检查（答辩前 10 秒确认全部凭据状态）
+check_credentials.py —— 凭据健康检查（启动前快速确认全部凭据状态）
 
 对应《爬虫收官计划》凭据管理方案第④环：一键检测所有可选凭据是否有效/缺失，
 缺失不影响核心功能（显示 optional），失效给出更新指引。

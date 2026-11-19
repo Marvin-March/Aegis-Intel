@@ -3,7 +3,7 @@
 """
 export_md.py —— 按源导出全文文章为 Markdown 文件
 
-用途：① Dify/RAGFlow 知识库批量上传  ② 交付展示  ③ 人工审阅
+用途：① Dify/RAGFlow 知识库批量上传  ② 成果展示  ③ 人工审阅
 每篇一个 .md，带 YAML front-matter（title/source/url/publish_time），
 输出到 data/export/<源名>/。只导出有正文的（≥300 字），跳过 no_body/low_content。
 

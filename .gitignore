@@ -33,7 +33,7 @@ runs/
 heartbeat.json
 state_*.json
 
-# Internal / competition materials
+# Internal materials
 docs/归档/
 docs/报告/
 docs/PPT/
