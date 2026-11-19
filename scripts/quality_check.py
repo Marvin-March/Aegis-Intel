@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-quality_check.py —— 情报数据核查工具（对应《情报核查规范.md》§一/§二/§四）
+quality_check.py —— 情报数据核查工具（对应《docs/quality.md》§一/§二/§四）
 
 用法：
     uv run python scripts/quality_check.py                    # 例行核查（§一 全项+面板）

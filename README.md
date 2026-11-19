@@ -114,7 +114,7 @@ aegis-intel/
 | 检索基准 | 冒烟 10/10、大规模 39/39、嵌入一致性 10/10 |
 | 延迟 | 检索 0.5–2.7 s（CPU）；端到端 11–33 s |
 
-详见 [docs/评估基准.md](docs/评估基准.md)。
+详见 [docs/evaluation.md](docs/evaluation.md)。
 
 ## 安全与合规
 
