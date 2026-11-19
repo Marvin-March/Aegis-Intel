@@ -23,6 +23,8 @@ cp config.example.json config.json
 
 `.env` 中至少配置生成模型 Key（如 `DEEPSEEK_API_KEY`）；NVD、GitHub Token、社区 Cookie 均为可选。
 
+`config.json` 是本地运行时配置，不入版本库；如需修改采集源、关键词或代理，改这一份即可，不要提交。
+
 ## 模型
 
 下载 `WeMM-Embedding-4B` 到以下任一位置：

@@ -6,6 +6,9 @@
 frontend/.env
 frontend/.env.*
 
+# Local runtime config (template: config.example.json)
+config.json
+
 # Python
 .venv/
 __pycache__/

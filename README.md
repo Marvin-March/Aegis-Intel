@@ -55,7 +55,7 @@ Aegis Intel 用一条自动流水线解决三件事：
 uv sync
 uv run playwright install chromium
 cp .env.example .env                 # 按需填写 LLM API Key
-cp config.example.json config.json   # 采集配置
+cp config.example.json config.json   # 本地采集配置（不入库）
 ```
 
 ### 3. 数据与模型
