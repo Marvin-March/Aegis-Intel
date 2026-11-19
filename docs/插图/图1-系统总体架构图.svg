@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="720" viewBox="0 0 1220 720" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2937"/>
+    </marker>
+  </defs>
+  <rect width="1220" height="720" fill="#ffffff"/>
+
+  <!-- ══════════ 层 1：数据源层 ══════════ -->
+  <rect x="100" y="18" width="1100" height="118" rx="8" fill="#f5f6f8" stroke="#f5f6f8"/>
+  <rect x="16" y="18" width="72" height="118" rx="8" fill="#1f3a5f"/>
+  <text x="52" y="66" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">数据</text>
+  <text x="52" y="88" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">源层</text>
+
+  <g font-size="13" text-anchor="middle">
+    <rect x="112" y="34" width="146" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="185" y="68" fill="#111827" font-weight="bold">NVD</text>
+    <text x="185" y="90" fill="#374151" font-size="11">CVE 官方主源</text>
+    <rect x="268" y="34" width="146" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="341" y="68" fill="#111827" font-weight="bold">CISA KEV</text>
+    <text x="341" y="90" fill="#374151" font-size="11">在野利用目录</text>
+    <rect x="424" y="34" width="146" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="497" y="68" fill="#111827" font-weight="bold">GitHub Advisory</text>
+    <text x="497" y="90" fill="#374151" font-size="11">GHSA / PYSEC</text>
+    <rect x="580" y="34" width="146" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="653" y="68" fill="#111827" font-weight="bold">CNNVD</text>
+    <text x="653" y="90" fill="#374151" font-size="11">中文官方库</text>
+    <rect x="736" y="34" width="146" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="809" y="68" fill="#111827" font-weight="bold">906 RSS 源</text>
+    <text x="809" y="90" fill="#374151" font-size="11">全球安全资讯</text>
+    <rect x="892" y="34" width="146" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="965" y="68" fill="#111827" font-weight="bold">中文安全社区</text>
+    <text x="965" y="90" fill="#374151" font-size="11">先知 / FreeBuf / 安全客</text>
+    <rect x="1048" y="34" width="140" height="86" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="1118" y="68" fill="#111827" font-weight="bold">arxiv</text>
+    <text x="1118" y="90" fill="#374151" font-size="11">LLM 安全论文</text>
+  </g>
+
+  <line x1="650" y1="136" x2="650" y2="164" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="668" y="155" fill="#374151" font-size="11">多源并发抓取</text>
+
+  <!-- ══════════ 层 2：采集层 ══════════ -->
+  <rect x="100" y="168" width="1100" height="96" rx="8" fill="#f5f6f8" stroke="#f5f6f8"/>
+  <rect x="16" y="168" width="72" height="96" rx="8" fill="#1f3a5f"/>
+  <text x="52" y="206" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">采集</text>
+  <text x="52" y="228" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">层</text>
+
+  <rect x="180" y="188" width="700" height="56" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+  <text x="530" y="212" text-anchor="middle" fill="#111827" font-weight="bold" font-size="14">情报监测调度 —— 7 类采集器并行 · 增量判重 · 断点续传 · 失败跳过</text>
+  <text x="530" y="233" text-anchor="middle" fill="#374151" font-size="11">Windows 计划任务定时触发（时刻可配置）· 无人值守全链路 · 正文回填 · 导出</text>
+  <rect x="920" y="188" width="264" height="56" rx="6" fill="#fff" stroke="#9ca3af" stroke-dasharray="4 3"/>
+  <text x="1052" y="212" text-anchor="middle" fill="#1f2937" font-size="12">采集运行报告 + 每日简报</text>
+  <text x="1052" y="231" text-anchor="middle" fill="#374151" font-size="11">data/daily/2026-10-16.md</text>
+
+  <line x1="430" y1="264" x2="430" y2="292" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="870" y1="264" x2="870" y2="292" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- ══════════ 层 3：加工层 ══════════ -->
+  <rect x="100" y="296" width="1100" height="128" rx="8" fill="#f5f6f8" stroke="#f5f6f8"/>
+  <rect x="16" y="296" width="72" height="128" rx="8" fill="#1f3a5f"/>
+  <text x="52" y="350" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">加工</text>
+  <text x="52" y="372" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">层</text>
+
+  <g text-anchor="middle">
+    <rect x="130" y="314" width="330" height="92" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="295" y="340" fill="#111827" font-weight="bold" font-size="14">情报富化 —— 三级裁决</text>
+    <text x="295" y="362" fill="#1f2937" font-size="11.5">AI 信号复核 → L1 确定性规则 → LLM 深度抽取</text>
+    <text x="295" y="381" fill="#1f2937" font-size="11.5">中文摘要 · 攻击类型 · CPE 资产 · 实体五元组</text>
+    <text x="295" y="399" fill="#1f3a5f" font-size="11.5" font-weight="bold">富化率 97.7% · CPE 覆盖 8,700+</text>
+
+    <rect x="490" y="314" width="290" height="92" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="635" y="340" fill="#111827" font-weight="bold" font-size="14">切块预处理</text>
+    <text x="635" y="362" fill="#1f2937" font-size="11.5">语义分段 · 块级 id = sha1(路径#序号)</text>
+    <text x="635" y="381" fill="#1f2937" font-size="11.5">元数据透传（来源/日期/CVE 编号）</text>
+    <text x="635" y="399" fill="#1f3a5f" font-size="11.5" font-weight="bold">56,615 块</text>
+
+    <rect x="810" y="314" width="370" height="92" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="995" y="340" fill="#111827" font-weight="bold" font-size="14">向量化 —— 本地推理</text>
+    <text x="995" y="362" fill="#1f2937" font-size="11.5">WeMM-Embedding-4B · 2560 维 · CPU bf16</text>
+    <text x="995" y="381" fill="#1f2937" font-size="11.5">增量嵌入 · 断点续传（重跑自动跳过已入库块）</text>
+    <text x="995" y="399" fill="#1f3a5f" font-size="11.5" font-weight="bold">数据不出域 · 检索全本地</text>
+  </g>
+
+  <line x1="650" y1="424" x2="650" y2="452" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="668" y="443" fill="#374151" font-size="11">双写落盘</text>
+
+  <!-- ══════════ 层 4：存储层 ══════════ -->
+  <rect x="100" y="456" width="1100" height="100" rx="8" fill="#f5f6f8" stroke="#f5f6f8"/>
+  <rect x="16" y="456" width="72" height="100" rx="8" fill="#1f3a5f"/>
+  <text x="52" y="496" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">存储</text>
+  <text x="52" y="518" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">层</text>
+
+  <g text-anchor="middle">
+    <rect x="130" y="472" width="330" height="68" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="295" y="498" fill="#111827" font-weight="bold" font-size="14">SQLite 情报库</text>
+    <text x="295" y="522" fill="#374151" font-size="11.5">31,045 条记录 · 15 类攻击类型归一 · CVSS/KEV/EPSS</text>
+
+    <rect x="490" y="472" width="290" height="68" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="635" y="498" fill="#111827" font-weight="bold" font-size="14">Chroma 向量库</text>
+    <text x="635" y="522" fill="#374151" font-size="11.5">56,615 块 · 2560 维 · cosine 检索</text>
+
+    <rect x="810" y="472" width="370" height="68" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="995" y="498" fill="#111827" font-weight="bold" font-size="14">缝合表（确定性关联）</text>
+    <text x="995" y="522" fill="#374151" font-size="11.5">文章↔CVE 767 条 · 论文↔组件 134 条 · /related 反查</text>
+  </g>
+
+  <line x1="650" y1="556" x2="650" y2="584" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="668" y="575" fill="#374151" font-size="11">结构化 + 语义双通道供给</text>
+
+  <!-- ══════════ 层 5：应用层 ══════════ -->
+  <rect x="100" y="588" width="1100" height="118" rx="8" fill="#f5f6f8" stroke="#f5f6f8"/>
+  <rect x="16" y="588" width="72" height="118" rx="8" fill="#1f3a5f"/>
+  <text x="52" y="636" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">应用</text>
+  <text x="52" y="658" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">层</text>
+
+  <g text-anchor="middle">
+    <rect x="130" y="606" width="500" height="82" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="380" y="632" fill="#111827" font-weight="bold" font-size="14">智能问答（FastAPI :8000）</text>
+    <text x="380" y="654" fill="#1f2937" font-size="11.5">六路意图路由：CVE 点查 / 时间窗 / 组件点查 / 条件筛选 / 平台检索 / 语义向量</text>
+    <text x="380" y="673" fill="#1f2937" font-size="11.5">防幻觉：编号拦截重生成 · [卡N] 引用溯源 · 诚实拒答 · 时效锚</text>
+
+    <rect x="660" y="606" width="250" height="82" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="785" y="632" fill="#111827" font-weight="bold" font-size="14">数据看板</text>
+    <text x="785" y="654" fill="#1f2937" font-size="11.5">全真口径 · 15 类别 / 30 天逐日</text>
+    <text x="785" y="673" fill="#1f2937" font-size="11.5">严重度·平台分布 · 点击下钻</text>
+
+    <rect x="940" y="606" width="248" height="82" rx="6" fill="#fff" stroke="#1f3a5f" stroke-width="1.4"/>
+    <text x="1064" y="632" fill="#111827" font-weight="bold" font-size="14">每日简报</text>
+    <text x="1064" y="654" fill="#1f2937" font-size="11.5">当日新增汇总</text>
+    <text x="1064" y="673" fill="#1f2937" font-size="11.5">Markdown 自动生成</text>
+  </g>
+
+  <!-- 问答回环：应用层右侧向上虚线（数据反馈） -->
+  <path d="M 1212 647 L 1212 647" stroke="none"/>
+</svg>

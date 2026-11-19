@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f3a5f"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" fill="#111827" font-size="17" font-weight="bold">知识库数据模型（ER 简图）：缝合表 = article_cve + paper_link 两张确定性关联表</text>
+
+  <!-- ═══ 左列：records / feed_state ═══ -->
+  <rect x="40" y="60" width="330" height="272" rx="8" fill="#ffffff" stroke="#1f3a5f" stroke-width="1.5"/>
+  <rect x="40" y="60" width="330" height="36" rx="8" fill="#1f3a5f"/>
+  <text x="205" y="84" text-anchor="middle" fill="#ffffff" font-size="13.5" font-weight="bold">records（原始情报 · 31,045 条）</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="56" y="120">🔑 id（cve-CVE-xxxx / rss-hash / xianzhi-n）</text>
+    <text x="56" y="143">source（nvd / cnnvd / rss:… / xianzhi / arxiv）</text>
+    <text x="56" y="166">url / url_norm（判重键）</text>
+    <text x="56" y="189">title · type（cve / rss_article / article / paper）</text>
+    <text x="56" y="212">publish_time（披露）· crawl_time（入库）</text>
+    <text x="56" y="235">content_md（正文，切片原料）· tags · status</text>
+    <text x="56" y="266" fill="#1f3a5f" font-weight="bold">双时间口径 → 时间线 / 今日速报两面板</text>
+    <text x="56" y="290" fill="#1f3a5f" font-weight="bold">组件点查标题召回 / 条件筛选 均基于本表</text>
+  </g>
+
+  <rect x="40" y="380" width="330" height="128" rx="8" fill="#f5f6f8" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="6 4"/>
+  <rect x="40" y="380" width="330" height="34" rx="8" fill="#4b5563"/>
+  <text x="205" y="403" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">feed_state（RSS 增量判重 · 906 源）</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="56" y="438">🔑 feed_url · etag · last_modified · last_check</text>
+    <text x="56" y="461">HTTP 条件请求（304 Not Modified 直接跳过）</text>
+    <text x="56" y="484">支撑 906 源高频扫描（实测 294 活跃源）</text>
+  </g>
+
+  <!-- ═══ 右列：vuln_meta + 三张关联表 ═══ -->
+  <rect x="660" y="60" width="480" height="184" rx="8" fill="#ffffff" stroke="#1f3a5f" stroke-width="1.5"/>
+  <rect x="660" y="60" width="480" height="36" rx="8" fill="#1f3a5f"/>
+  <text x="900" y="84" text-anchor="middle" fill="#ffffff" font-size="13.5" font-weight="bold">vuln_meta（漏洞富化 · 26,677 CVE）</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="676" y="120">🔑 cve_id　cvss · severity · kev · epss（评分四件套）</text>
+    <text x="676" y="143">ai_related · ai_signal · llm_ai_related（AI 判定三级）</text>
+    <text x="676" y="166">affected_component（组件点查键）· affected_versions · cpes</text>
+    <text x="676" y="189">enrich_json（三级裁决产出）· summary_zh · updated_at</text>
+    <text x="676" y="220" fill="#1f3a5f" font-weight="bold">SQL 点查主表 · 条件筛选目标 · 1,598 AI 相关 / 129 条 CVSS≥9</text>
+  </g>
+
+  <!-- 缝合表①（描边加粗强调） -->
+  <rect x="660" y="272" width="480" height="88" rx="8" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="660" y="272" width="480" height="32" rx="8" fill="#1f3a5f"/>
+  <text x="900" y="294" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">缝合表 ①　article_cve（文章 ↔ 漏洞 · 767 条）</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="676" y="326">🔑 (article_url, cve_id)　→ /related 接口实时反查</text>
+    <text x="676" y="348">“哪些文章分析过该漏洞”精确命中，非向量相似度</text>
+  </g>
+
+  <!-- 缝合表② -->
+  <rect x="660" y="388" width="480" height="88" rx="8" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="660" y="388" width="480" height="32" rx="8" fill="#1f3a5f"/>
+  <text x="900" y="410" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">缝合表 ②　paper_link（论文 ↔ 组件 · 134 条）</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="676" y="442">🔑 (paper_url, component)　→ 研究视角自动补充</text>
+    <text x="676" y="464">点查回答自动携带论文线索（paper_link.component）</text>
+  </g>
+
+  <!-- article_enrich -->
+  <rect x="660" y="504" width="480" height="88" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.3"/>
+  <rect x="660" y="504" width="480" height="32" rx="8" fill="#6b7280"/>
+  <text x="900" y="526" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">article_enrich（文章富化产出）</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="676" y="558">🔑 url　summary_zh · entities · subcategory</text>
+    <text x="676" y="580">exploitation · remediation · fabrications（质量留痕）</text>
+  </g>
+
+  <!-- ═══ 关系线（全部直角布线，零交叉） ═══ -->
+  <!-- 1. records → vuln_meta（1:1） -->
+  <line x1="370" y1="140" x2="656" y2="140" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="513" y="131" text-anchor="middle" font-size="10.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">1 : 1　id = 'cve-' || cve_id</text>
+
+  <!-- 2. records → article_cve（缝合） -->
+  <path d="M 370 240 L 560 240 L 560 316 L 656 316" fill="none" stroke="#1f3a5f" stroke-width="2.2" marker-end="url(#arr)"/>
+  <text x="470" y="232" text-anchor="middle" font-size="10.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-weight="bold">文章 url + 富化 CVE 编号 → 缝合</text>
+
+  <!-- 3. records → paper_link（缝合） -->
+  <path d="M 370 305 L 470 305 L 470 432 L 656 432" fill="none" stroke="#1f3a5f" stroke-width="2.2" marker-end="url(#arr)"/>
+  <text x="500" y="300" text-anchor="middle" font-size="10.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-weight="bold">论文 url + 组件名 → 缝合</text>
+
+  <!-- 4. records → article_enrich -->
+  <path d="M 370 265 L 520 265 L 520 548 L 656 548" fill="none" stroke="#9ca3af" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+  <text x="545" y="258" text-anchor="middle" font-size="10.5" fill="#374151" stroke="#ffffff" stroke-width="4" paint-order="stroke">1 : 0..1　富化摘要</text>
+
+  <!-- 5. vuln_meta → article_cve（竖直短线） -->
+  <line x1="900" y1="244" x2="900" y2="268" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="916" y="262" font-size="10" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">cve_id</text>
+
+  <!-- 6. vuln_meta → paper_link（右外侧通道） -->
+  <path d="M 1140 100 L 1176 100 L 1176 432 L 1144 432" fill="none" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="1160" y="270" text-anchor="middle" font-size="10" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke" transform="rotate(90 1160 270)">component ↔ affected_component</text>
+
+  <!-- 底注 -->
+  <rect x="40" y="606" width="1100" height="28" rx="5" fill="#f5f6f8" stroke="#9ca3af"/>
+  <text x="590" y="625" text-anchor="middle" fill="#1f2937" font-size="11">问答侧 /related 接口：给定 cve_ids 反查 article_cve / paper_link → 返回关联文章与论文（确定性查询，非向量相似度）</text>
+</svg>

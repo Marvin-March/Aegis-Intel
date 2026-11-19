@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="640" viewBox="0 0 1180 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2937"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+  <rect width="1180" height="640" fill="#ffffff"/>
+  <text x="590" y="34" text-anchor="middle" fill="#111827" font-size="17" font-weight="bold">问答智能体决策闭环：路由 → 工具调用 → 证据组装 → 生成 → 校验 → 重生成</text>
+
+  <!-- 主链 -->
+  <!-- 1 用户问题 -->
+  <rect x="26" y="252" width="130" height="76" rx="10" fill="#1f3a5f"/>
+  <text x="91" y="284" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="bold">用户问题</text>
+  <text x="91" y="306" text-anchor="middle" fill="#ffffff" font-size="11">自然语言</text>
+  <line x1="156" y1="290" x2="192" y2="290" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- 2 意图识别 -->
+  <rect x="196" y="252" width="150" height="76" rx="10" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+  <text x="271" y="282" text-anchor="middle" fill="#111827" font-size="13.5" font-weight="bold">意图识别</text>
+  <text x="271" y="302" text-anchor="middle" fill="#374151" font-size="10.5">闲聊/反馈/系统自述</text>
+  <text x="271" y="318" text-anchor="middle" fill="#374151" font-size="10.5">优先拦截 → 真问题路由</text>
+  <line x1="346" y1="290" x2="382" y2="290" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- 3 工具调用层（大框含5工具） -->
+  <rect x="386" y="196" width="330" height="280" rx="10" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.6"/>
+  <text x="551" y="224" text-anchor="middle" fill="#111827" font-size="14" font-weight="bold">工具调用层（按路由选择）</text>
+  <g font-size="11.5">
+    <rect x="406" y="240" width="290" height="36" rx="5" fill="#fff" stroke="#1f3a5f"/>
+    <text x="551" y="263" text-anchor="middle" fill="#111827">① SQL 点查（单卡/多卡对比）· 毫秒级</text>
+    <rect x="406" y="282" width="290" height="36" rx="5" fill="#fff" stroke="#1f3a5f"/>
+    <text x="551" y="305" text-anchor="middle" fill="#111827">② 时间窗检索（真日期过滤+窗口放宽）</text>
+    <rect x="406" y="324" width="290" height="36" rx="5" fill="#fff" stroke="#1f3a5f"/>
+    <text x="551" y="347" text-anchor="middle" fill="#111827">③ 组件点查（affected_component 精确链）</text>
+    <rect x="406" y="366" width="290" height="36" rx="5" fill="#fff" stroke="#1f3a5f"/>
+    <text x="551" y="389" text-anchor="middle" fill="#111827">④ 条件筛选（年月+CVSS+AI 组合 SQL）</text>
+    <rect x="406" y="408" width="290" height="36" rx="5" fill="#fff" stroke="#1f3a5f"/>
+    <text x="551" y="431" text-anchor="middle" fill="#111827">⑤ 向量语义检索 + 平台过滤 + /related 反查</text>
+  </g>
+  <line x1="716" y1="290" x2="752" y2="290" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- 4 证据组装 -->
+  <rect x="756" y="252" width="160" height="76" rx="10" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+  <text x="836" y="280" text-anchor="middle" fill="#111827" font-size="13.5" font-weight="bold">证据组装</text>
+  <text x="836" y="300" text-anchor="middle" fill="#374151" font-size="10.5">漏洞卡片 + 切片</text>
+  <text x="836" y="316" text-anchor="middle" fill="#374151" font-size="10.5">+ 缝合表关联文章</text>
+  <line x1="916" y1="290" x2="952" y2="290" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- 5 LLM生成 -->
+  <rect x="956" y="240" width="200" height="100" rx="10" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+  <text x="1056" y="268" text-anchor="middle" fill="#111827" font-size="13.5" font-weight="bold">LLM 生成</text>
+  <text x="1056" y="288" text-anchor="middle" fill="#374151" font-size="10.5">DeepSeek 生成（API 可配置）</text>
+  <text x="1056" y="305" text-anchor="middle" fill="#374151" font-size="10.5">时效锚注入（真实最新日期）</text>
+  <text x="1056" y="322" text-anchor="middle" fill="#374151" font-size="10.5">[卡N]/[N] 引用锚点强制</text>
+
+  <!-- 校验器（菱形） -->
+  <polygon points="1056,396 1166,434 1056,472 946,434" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="1056" y="428" text-anchor="middle" fill="#111827" font-size="12.5" font-weight="bold">防幻觉校验器</text>
+  <text x="1056" y="447" text-anchor="middle" fill="#111827" font-size="10.5">CVE 编号真实性 / 引用完整性</text>
+
+  <!-- 通过 → 输出 -->
+  <line x1="1056" y1="340" x2="1056" y2="392" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="1068" y="370" fill="#15803d" font-size="11" font-weight="bold">通过</text>
+  <line x1="1056" y1="472" x2="1056" y2="510" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="1068" y="496" fill="#15803d" font-size="11" font-weight="bold">通过</text>
+
+  <!-- 输出 -->
+  <rect x="926" y="514" width="260" height="72" rx="10" fill="#15803d"/>
+  <text x="1056" y="543" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="bold">输出深度回答</text>
+  <text x="1056" y="565" text-anchor="middle" fill="#ffffff" font-size="11">引用可点击溯源 · FABRICATE 0 ✓ · 11~33s</text>
+
+  <!-- 失败 → 重生成回环 -->
+  <path d="M 946 434 L 830 434 L 830 290 L 952 290" fill="none" stroke="#b91c1c" stroke-width="1.8" stroke-dasharray="7 4" marker-end="url(#arrR)"/>
+  <rect x="700" y="408" width="240" height="52" rx="6" fill="#f5f6f8" stroke="#b91c1c" stroke-width="1.4"/>
+  <text x="820" y="430" text-anchor="middle" fill="#111827" font-size="12" font-weight="bold">不通过 → 拦截 + 重生成</text>
+  <text x="820" y="449" text-anchor="middle" fill="#111827" font-size="10.5">剥除编造编号 · 注入正确证据 · 翻倍退避重试</text>
+
+  <!-- 检索空 → 拒答 -->
+  <path d="M 271 328 L 271 540 L 560 540" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <rect x="564" y="514" width="250" height="52" rx="6" fill="#f5f6f8" stroke="#9ca3af"/>
+  <text x="689" y="536" text-anchor="middle" fill="#111827" font-size="12" font-weight="bold">检索为空 → 诚实拒答</text>
+  <text x="689" y="555" text-anchor="middle" fill="#374151" font-size="10.5">不虚构内容 · 提供 NVD 官方链接</text>
+
+  <!-- 多轮上下文（左下） -->
+  <rect x="26" y="396" width="290" height="120" rx="10" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.4"/>
+  <text x="171" y="424" text-anchor="middle" fill="#111827" font-size="13" font-weight="bold">多轮上下文实体继承</text>
+  <g font-size="11" fill="#1f2937">
+    <text x="171" y="448" text-anchor="middle">"它的攻击链呢" → 继承上轮锁定 CVE</text>
+    <text x="171" y="467" text-anchor="middle">改写为点查路由 · 历史拼接进 prompt</text>
+    <text x="171" y="486" text-anchor="middle">焦点词感知：追问方向决定召回素材</text>
+    <text x="171" y="505" text-anchor="middle">user_cid 权威 · 呢/呐结尾=新话题</text>
+  </g>
+  <path d="M 171 396 L 171 340 L 196 340" fill="none" stroke="#1f3a5f" stroke-width="1.4" marker-end="url(#arr)"/>
+</svg>

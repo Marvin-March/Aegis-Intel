@@ -1,0 +1,770 @@
+{
+ "device": "cpu",
+ "store": "data/vector_store",
+ "hit": 10,
+ "results": [
+  {
+   "q": "有哪些针对 MCP 工具链的供应链攻击？",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "article",
+   "keyword_hit": [
+    "MCP"
+   ],
+   "embed_s": 5.0,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7184,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "Shadow Tools：MCP协议供应链攻击的五种武器与自动化检测实战",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/500458.html"
+    },
+    {
+     "rank": 2,
+     "score": 0.6644,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "MCP工具链安全：从描述投毒到凭据窃取的完整攻击路径剖析",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/91245"
+    },
+    {
+     "rank": 3,
+     "score": 0.6495,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "实战｜MCP 工具生态的\"幽灵克隆\"——供应链投毒的新战场",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/500397.html"
+    },
+    {
+     "rank": 4,
+     "score": 0.6461,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "MCP 工具投毒与 rug pull 攻击的协议级根因，AI Agent 生态最阴的供应链坑",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/496757.html"
+    },
+    {
+     "rank": 5,
+     "score": 0.6367,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "模型上下文协议(MCP)十大安全漏洞解析",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/443185.html"
+    },
+    {
+     "rank": 6,
+     "score": 0.6363,
+     "domain": "article",
+     "source": "butian",
+     "title": "AI Agent供应链安全检测实践：用ATR规则识别MCP工具中的恶意技能",
+     "cve_ids": "",
+     "url": "https://forum.butian.net/ai_security/305"
+    },
+    {
+     "rank": 7,
+     "score": 0.6361,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "首个恶意MCP服务器现身：通过AI Agent窃取电子邮件数据",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/450623.html"
+    },
+    {
+     "rank": 8,
+     "score": 0.6355,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "MCP特性及攻击面",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/18374"
+    }
+   ]
+  },
+  {
+   "q": "Dify 的 SSRF 漏洞怎么修？",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "article|cve",
+   "keyword_hit": [
+    "dify"
+   ],
+   "embed_s": 1.3,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.636,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "Dify1.6.1版本：未授权SSRF及代码沙箱",
+     "cve_ids": "CVE-2025-29720,CVE-2025-56520",
+     "url": "https://xz.aliyun.com/news/92812"
+    },
+    {
+     "rank": 2,
+     "score": 0.5674,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "Dify 沙箱逃逸漏洞 RCE 分析",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/91160"
+    },
+    {
+     "rank": 3,
+     "score": 0.5071,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用",
+     "cve_ids": "CVE-2026-26023",
+     "url": "https://xz.aliyun.com/news/91845"
+    },
+    {
+     "rank": 4,
+     "score": 0.4993,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "Ollama公网暴露实录：API全裸、配置全露、2分钟被扫",
+     "cve_ids": "CVE-2024-37032,CVE-2024-39720",
+     "url": "https://xz.aliyun.com/news/92334"
+    },
+    {
+     "rank": 5,
+     "score": 0.492,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "Langflow SSRF 服务器端请求伪造漏洞(CVE-2025-68477)",
+     "cve_ids": "CVE-2025-68477",
+     "url": "https://xz.aliyun.com/news/91398"
+    },
+    {
+     "rank": 6,
+     "score": 0.4875,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "LiteLLM AI 网关攻击面分析",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/92537"
+    },
+    {
+     "rank": 7,
+     "score": 0.4853,
+     "domain": "article",
+     "source": "butian",
+     "title": "Flowise3.1.1版本深度研究：SSRF拿云账户及沙箱逃逸RCE",
+     "cve_ids": "CVE-2025-59528,CVE-2025-8943",
+     "url": "https://forum.butian.net/ai_security/250"
+    },
+    {
+     "rank": 8,
+     "score": 0.4823,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "[原创] RAG 链接入库 SSRF：内网内容如何成为模型上下文",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/92479"
+    }
+   ]
+  },
+  {
+   "q": "和 EchoLeak（CVE-2025-32711，M365 Copilot 提示注入泄露）类似的研究有哪些？",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "article",
+   "keyword_hit": [
+    "EchoLeak"
+   ],
+   "embed_s": 1.3,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6775,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "Microsoft 365 Copilot 提示注入漏洞可导致攻击者窃取敏感数据",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/453577.html"
+    },
+    {
+     "rank": 2,
+     "score": 0.6205,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "首个AI零点击漏洞可窃取Microsoft 365 Copilot数据",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/434791.html"
+    },
+    {
+     "rank": 3,
+     "score": 0.6038,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "GitHub Copilot 与 Visual Studio 漏洞可致攻击者绕过安全防护功能",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/456906.html"
+    },
+    {
+     "rank": 4,
+     "score": 0.5839,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "深入分析微软最新漏洞Microsoft Copilot Reprompt单击触发的隐蔽数据外传链漏洞",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/91235"
+    },
+    {
+     "rank": 5,
+     "score": 0.5696,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "产品解析：如何通过 Reco 保障 Microsoft Copilot 安全",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/429380.html"
+    },
+    {
+     "rank": 6,
+     "score": 0.5547,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "\"lc\"键漏洞：LangChain高危缺陷（CVE-2025-68664）使提示注入攻击可窃取机密",
+     "cve_ids": "CVE-2025-68664",
+     "url": "https://www.freebuf.com/articles/ai-security/463717.html"
+    },
+    {
+     "rank": 7,
+     "score": 0.5518,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "微软扩展 Copilot 数据防泄漏支持范围，阻止敏感文件处理",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/471516.html"
+    },
+    {
+     "rank": 8,
+     "score": 0.5506,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "提示注入导致代码执行：Cursor代码编辑器曝出关键MCP漏洞",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/442790.html"
+    }
+   ]
+  },
+  {
+   "q": "2026 年有哪些被在野利用的 AI 漏洞？",
+   "route": "vector where={'$and': [{'domain': 'cve'}, {'ai_related': 1}]}",
+   "ok": true,
+   "expect_domain": "cve",
+   "keyword_hit": [],
+   "embed_s": 1.0,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.3335,
+     "domain": "cve",
+     "source": "github_advisory",
+     "title": "GHSA-v6qf-75pr-p96m: Open WebUI: Authenticated users can bypass model access con",
+     "cve_ids": "CVE-2026-45365",
+     "url": "https://github.com/advisories/GHSA-v6qf-75pr-p96m"
+    },
+    {
+     "rank": 2,
+     "score": 0.3256,
+     "domain": "cve",
+     "source": "osv",
+     "title": "GHSA-9vvh-qmjx-p4q8: Open WebUI's Base Model Routing Bypasses Access Control via",
+     "cve_ids": "CVE-2026-44555",
+     "url": "https://osv.dev/vulnerability/GHSA-9vvh-qmjx-p4q8"
+    },
+    {
+     "rank": 3,
+     "score": 0.3251,
+     "domain": "cve",
+     "source": "osv",
+     "title": "PYSEC-2026-1467: InvokeAI Uncontrolled Resource Consumption vulnerability",
+     "cve_ids": "CVE-2024-11043",
+     "url": "https://osv.dev/vulnerability/PYSEC-2026-1467"
+    },
+    {
+     "rank": 4,
+     "score": 0.3202,
+     "domain": "cve",
+     "source": "nvd",
+     "title": "CVE-2025-61164 [HIGH]: Cohere North AI v1.1.5 was discovered to contain an infor",
+     "cve_ids": "CVE-2025-61164",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-61164"
+    },
+    {
+     "rank": 5,
+     "score": 0.3165,
+     "domain": "cve",
+     "source": "nvd",
+     "title": "CVE-2026-6876: ServiceNow has remediated a sandbox escape security issue that wa",
+     "cve_ids": "CVE-2026-6876",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6876"
+    },
+    {
+     "rank": 6,
+     "score": 0.3153,
+     "domain": "cve",
+     "source": "osv",
+     "title": "GHSA-vv9c-xxg7-wmv7: InvokeAI has External Control of File Name or Path",
+     "cve_ids": "CVE-2025-6237",
+     "url": "https://osv.dev/vulnerability/GHSA-vv9c-xxg7-wmv7"
+    },
+    {
+     "rank": 7,
+     "score": 0.3149,
+     "domain": "cve",
+     "source": "osv",
+     "title": "GHSA-5x7x-4c3c-qf5w: Open WebUI: Server-side fetches reach blocked and internal ",
+     "cve_ids": "CVE-2026-88001",
+     "url": "https://osv.dev/vulnerability/GHSA-5x7x-4c3c-qf5w"
+    },
+    {
+     "rank": 8,
+     "score": 0.3145,
+     "domain": "cve",
+     "source": "osv",
+     "title": "PYSEC-2026-2719: Open WebUI's Base Model Routing Bypasses Access Control via Mod",
+     "cve_ids": "CVE-2026-44555",
+     "url": "https://osv.dev/vulnerability/PYSEC-2026-2719"
+    }
+   ]
+  },
+  {
+   "q": "提示词注入有什么防御方法？",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "article",
+   "keyword_hit": [],
+   "embed_s": 1.0,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7291,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "提示词注入攻击",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/15907"
+    },
+    {
+     "rank": 2,
+     "score": 0.7001,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "【翻译】LLM01:2023 – LLMs(大型语言模型)中的提示词注入",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/14396"
+    },
+    {
+     "rank": 3,
+     "score": 0.6903,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "AI提示词注入",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/455950.html"
+    },
+    {
+     "rank": 4,
+     "score": 0.6879,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "防御间接提示注入攻击",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/17319"
+    },
+    {
+     "rank": 5,
+     "score": 0.6854,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "AI提示词注入攻防战：从论文挖掘到越狱实战的漏洞发现全解析",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/18735"
+    },
+    {
+     "rank": 6,
+     "score": 0.68,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "通过模糊测试实现提示注入攻击",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/16546"
+    },
+    {
+     "rank": 7,
+     "score": 0.6754,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "提示词注入之Special Token Injection",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/19215"
+    },
+    {
+     "rank": 8,
+     "score": 0.6724,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "大模型改击与传统攻击的进化图增(一)",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/18729"
+    }
+   ]
+  },
+  {
+   "q": "CVE-2026-59822 是什么？",
+   "route": "sql点查",
+   "ok": true,
+   "card": {
+    "cve_id": "CVE-2026-59822",
+    "cvss": 8.2,
+    "severity": "HIGH",
+    "kev": 1,
+    "epss": "0.00836",
+    "summary_zh": "CVE-2026-59822：LiteLLM代理服务器存在认证绕过漏洞，攻击者可利用伪造的Authorization头触发OAuth2回退路径，绕过LiteLLM密钥验证，导致请求无需有效密钥即可访问MCP工具。",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59822",
+    "title": "CVE-2026-59822 [HIGH]: LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. Prio"
+   }
+  },
+  {
+   "q": "有哪些关于 LLM Agent 安全的论文？",
+   "route": "vector where={'domain': 'paper'}",
+   "ok": true,
+   "expect_domain": "paper",
+   "keyword_hit": [],
+   "embed_s": 0.9,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6055,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "On Understanding, Identifying, and Mitigating Vulnerabilities in Agentic Large L",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2608.10530v1"
+    },
+    {
+     "rank": 2,
+     "score": 0.5918,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Connecting the Dots in Agentic AI Security: A Cross-Dimensional Threat Taxonomy,",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2609.23894v1"
+    },
+    {
+     "rank": 3,
+     "score": 0.5871,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "ToolFence: Fine-Grained Authorization for Secure Tool-Using LLM Agents",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2609.37196v1"
+    },
+    {
+     "rank": 4,
+     "score": 0.5869,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Self-Evolving Defense: Continual Security Policy Learning for LLM Agents",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2609.36603v1"
+    },
+    {
+     "rank": 5,
+     "score": 0.5824,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "From A2A Attacks to Envelope-Layer Defense: Red-Teaming Evaluation of LLM Agents",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2610.00392v1"
+    },
+    {
+     "rank": 6,
+     "score": 0.5764,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "ORBIT: A Framework for Multi-Agent Safety and Security Evaluations",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2609.33102v1"
+    },
+    {
+     "rank": 7,
+     "score": 0.5727,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Trustworthy Agentic AI: Failure Modes, Mitigation Strategies, and a Lifecycle Fr",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2609.22712v1"
+    },
+    {
+     "rank": 8,
+     "score": 0.5726,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "CoDeL: Co-Evolutionary Defense against Indirect Prompt Injection in LLM-based Ag",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2609.34463v1"
+    }
+   ]
+  },
+  {
+   "q": "vLLM 有哪些已知漏洞？",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "cve",
+   "keyword_hit": [
+    "vllm"
+   ],
+   "embed_s": 1.0,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6629,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "vLLM高危漏洞可致远程代码执行（CVE-2025-62164）",
+     "cve_ids": "CVE-2025-62164",
+     "url": "https://www.freebuf.com/articles/ai-security/458647.html"
+    },
+    {
+     "rank": 2,
+     "score": 0.628,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "vLLM 曝出 CVSS 9.8 高危远程代码执行漏洞，AI 服务器面临攻击风险",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/431871.html"
+    },
+    {
+     "rank": 3,
+     "score": 0.6123,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "CVE-2025-32444（CVSS 10分）：vLLM框架Mooncake集成组件曝高危远程代码执行漏洞，威胁AI基础设施安全",
+     "cve_ids": "CVE-2025-32444",
+     "url": "https://www.freebuf.com/articles/ai-security/429529.html"
+    },
+    {
+     "rank": 4,
+     "score": 0.5795,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "vLLM 远程代码执行漏洞(CVE-2025-66448)",
+     "cve_ids": "CVE-2025-66448",
+     "url": "https://xz.aliyun.com/news/91480"
+    },
+    {
+     "rank": 5,
+     "score": 0.5779,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "vLLM高危远程代码执行漏洞分析（CVE-2025-62164）",
+     "cve_ids": "CVE-2025-62164",
+     "url": "https://xz.aliyun.com/news/91330"
+    },
+    {
+     "rank": 6,
+     "score": 0.5699,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "vLLM PyNcclPipe pickle反序列化漏洞（CVE-2025-47277）分析",
+     "cve_ids": "CVE-2025-47277",
+     "url": "https://xz.aliyun.com/news/91204"
+    },
+    {
+     "rank": 7,
+     "score": 0.5566,
+     "domain": "article",
+     "source": "butian",
+     "title": "一行哈希碰撞，污染整个缓存：vLLM 前缀缓存投毒与窃听实战（CVE-2025-25183 + TTFT 侧信道复现）",
+     "cve_ids": "CVE-2025-25183",
+     "url": "https://forum.butian.net/ai_security/354"
+    },
+    {
+     "rank": 8,
+     "score": 0.5513,
+     "domain": "cve",
+     "source": "osv",
+     "title": "PYSEC-2026-3704: vLLM: Completion prompt lists fan out into unbounded engine req",
+     "cve_ids": "CVE-2026-73559",
+     "url": "https://osv.dev/vulnerability/PYSEC-2026-3704"
+    }
+   ]
+  },
+  {
+   "q": "微软 Copilot 出过什么安全事件？",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "article",
+   "keyword_hit": [
+    "Copilot"
+   ],
+   "embed_s": 0.9,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6075,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "Microsoft 365 Copilot 提示注入漏洞可导致攻击者窃取敏感数据",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/453577.html"
+    },
+    {
+     "rank": 2,
+     "score": 0.6024,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "微软扩展 Copilot 数据防泄漏支持范围，阻止敏感文件处理",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/471516.html"
+    },
+    {
+     "rank": 3,
+     "score": 0.5898,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "产品解析：如何通过 Reco 保障 Microsoft Copilot 安全",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/429380.html"
+    },
+    {
+     "rank": 4,
+     "score": 0.574,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "GitHub Copilot 与 Visual Studio 漏洞可致攻击者绕过安全防护功能",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/456906.html"
+    },
+    {
+     "rank": 5,
+     "score": 0.5491,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "深入分析微软最新漏洞Microsoft Copilot Reprompt单击触发的隐蔽数据外传链漏洞",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/91235"
+    },
+    {
+     "rank": 6,
+     "score": 0.538,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "微软Copilot曝一键式漏洞：攻击者可悄无声息窃取敏感数据",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/466532.html"
+    },
+    {
+     "rank": 7,
+     "score": 0.5379,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "微软Security Copilot增加新的AI安全助手，应对钓鱼攻击、补丁管理和无效告警",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/es/425721.html"
+    },
+    {
+     "rank": 8,
+     "score": 0.5275,
+     "domain": "article",
+     "source": "freebuf",
+     "title": "微软悬赏最高3万美元征集AI系统漏洞",
+     "cve_ids": "",
+     "url": "https://www.freebuf.com/articles/ai-security/428668.html"
+    }
+   ]
+  },
+  {
+   "q": "越狱攻击的最新研究",
+   "route": "vector where=None",
+   "ok": true,
+   "expect_domain": "article|paper",
+   "keyword_hit": [],
+   "embed_s": 0.9,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.685,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "TurboFuzzLLM: Turbocharging Mutation-based Fuzzing for Effectively Jailbreaking ",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2502.18504v2"
+    },
+    {
+     "rank": 2,
+     "score": 0.6847,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Model Poisoning Against Federated Model Adaptation with Chain of Bit-Flips",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2606.09548v1"
+    },
+    {
+     "rank": 3,
+     "score": 0.6786,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Iterative Prompting with Persuasion Skills in Jailbreaking Large Language Models",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2503.20320v1"
+    },
+    {
+     "rank": 4,
+     "score": 0.6782,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2403.12171v1"
+    },
+    {
+     "rank": 5,
+     "score": 0.6761,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Hide Your Malicious Goal Into Benign Narratives: Jailbreak Large Language Models",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2408.11182v2"
+    },
+    {
+     "rank": 6,
+     "score": 0.6759,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "Breaking MCP with Function Hijacking Attacks: Novel Threats for Function Calling",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2604.20994v2"
+    },
+    {
+     "rank": 7,
+     "score": 0.6753,
+     "domain": "paper",
+     "source": "arxiv",
+     "title": "CySecBench: Generative AI-based CyberSecurity-focused Prompt Dataset for Benchma",
+     "cve_ids": "",
+     "url": "https://arxiv.org/abs/2501.01335v1"
+    },
+    {
+     "rank": 8,
+     "score": 0.6752,
+     "domain": "article",
+     "source": "xianzhi",
+     "title": "伪装重构越狱大模型",
+     "cve_ids": "",
+     "url": "https://xz.aliyun.com/news/15668"
+    }
+   ]
+  }
+ ]
+}

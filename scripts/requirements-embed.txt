@@ -1,0 +1,10 @@
+# WeMM-Embedding 建库/检索独立环境依赖（方式 B，无 uv 时用）
+# torch/torchvision 请先单独按 GPU 装 CUDA 构建并保持同版本对，例如：
+#   pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu128
+torch>=2.7
+torchvision>=0.24
+transformers==5.2.0
+qwen-vl-utils==0.0.14
+sentence-transformers>=5.7.0
+accelerate>=1.1.0
+chromadb>=1.5.9

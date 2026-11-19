@@ -1,0 +1,46 @@
+# Secrets
+.env
+.env.*
+!.env.example
+!frontend/.env.production.example
+frontend/.env
+frontend/.env.*
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+**/node_modules/
+frontend/dist/
+
+# Runtime data / models
+data/
+models/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+vector_store/
+export/
+raw/
+runs/
+*.log
+heartbeat.json
+state_*.json
+
+# Internal / competition materials
+docs/归档/
+docs/报告/
+docs/PPT/
+docs/口播稿.md
+docs/演示脚本.md
+docs/情报源分级清单.md
+docs/运行环境说明.md
+docs/前端对接说明.md
+
+# legacy nested tests (copied to tests/)
+tests/tests/

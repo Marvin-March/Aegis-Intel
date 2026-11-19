@@ -1,0 +1,547 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============ 背景：深空 + 荧光渐晕 + 辉光网格 + 扫描线 ============ */
+
+.soc-bg-aura {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 1000px 580px at 18% -12%, rgba(34, 211, 238, 0.13), transparent 60%),
+    radial-gradient(ellipse 860px 500px at 90% 0%, rgba(139, 92, 246, 0.11), transparent 58%),
+    radial-gradient(ellipse 900px 620px at 50% 114%, rgba(14, 116, 144, 0.16), transparent 64%),
+    radial-gradient(ellipse at 50% 42%, transparent 52%, rgba(2, 4, 10, 0.55) 100%);
+}
+
+/* 辉光网格（坐标纸） */
+.soc-bg-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 76% 62% at 50% 0%, black 16%, transparent 84%);
+  -webkit-mask-image: radial-gradient(ellipse 76% 62% at 50% 0%, black 16%, transparent 84%);
+}
+
+/* 荧光扫描线：缓移下扫 */
+.soc-scanline {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(34, 211, 238, 0.16) 30%,
+    rgba(34, 211, 238, 0.28) 50%,
+    rgba(34, 211, 238, 0.16) 70%,
+    transparent 100%
+  );
+  animation: scan-sweep 12s linear infinite;
+}
+
+@keyframes scan-sweep {
+  0% {
+    top: -2%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    top: 102%;
+    opacity: 0;
+  }
+}
+
+/* ============ 排版件 ============ */
+
+.soc-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #5d7089;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.soc-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.35), transparent);
+  transform-origin: left;
+  animation: line-grow 0.6s ease-out both;
+}
+
+/* 荧光文字（备用；当前版本正文未启用） */
+
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ============ 面板：荧光边 + 内顶高光 ============ */
+
+.soc-glass {
+  background: linear-gradient(180deg, rgba(16, 26, 48, 0.55) 0%, rgba(10, 16, 32, 0.92) 100%);
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(34, 211, 238, 0.07),
+    0 0 26px -14px rgba(34, 211, 238, 0.4);
+}
+
+.soc-lift {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.soc-lift:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(34, 211, 238, 0.1),
+    0 0 34px -12px rgba(34, 211, 238, 0.55);
+}
+
+/* ============ 按钮 ============ */
+
+.soc-btn-primary {
+  position: relative;
+  overflow: hidden;
+  color: #04121c;
+  background: #22d3ee;
+  border: 1px solid rgba(165, 243, 252, 0.7);
+  box-shadow:
+    0 0 18px -6px rgba(34, 211, 238, 0.8),
+    inset 0 0 10px rgba(255, 255, 255, 0.18);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soc-btn-primary:hover:not(:disabled) {
+  background: #4fdcf3;
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 28px -4px rgba(34, 211, 238, 0.95),
+    inset 0 0 12px rgba(255, 255, 255, 0.22);
+}
+
+.soc-btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  left: -60%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+.soc-btn-primary:hover:not(:disabled)::after {
+  animation: btn-sweep 0.7s ease-out;
+}
+
+@keyframes btn-sweep {
+  from {
+    left: -60%;
+  }
+  to {
+    left: 130%;
+  }
+}
+
+.soc-btn-ghost {
+  color: #9fb2c8;
+  background: transparent;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  transition: all 0.2s ease;
+}
+
+.soc-btn-ghost:hover:not(:disabled) {
+  color: #67e8f9;
+  border-color: rgba(34, 211, 238, 0.6);
+  background: rgba(34, 211, 238, 0.07);
+  box-shadow: 0 0 18px -8px rgba(34, 211, 238, 0.7);
+}
+
+/* ============ 动效 ============ */
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-in {
+  animation: fade-slide-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes panel-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-panel-reveal {
+  animation: panel-reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 线条绘制 */
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: var(--dash, 600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.soc-draw-line {
+  stroke-dasharray: var(--dash, 600);
+  animation: draw-line 2.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* 节点脉动 */
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 5.5s ease-in-out infinite;
+}
+
+@keyframes tab-underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-tab-underline {
+  animation: tab-underline 0.3s ease-out both;
+  transform-origin: left;
+}
+
+/* 当前步/生成中荧光呼吸 */
+@keyframes step-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(34, 211, 238, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.35);
+  }
+}
+
+.animate-step-breathe {
+  animation: step-breathe 2.4s ease-in-out infinite;
+}
+
+/* 分数条流光 */
+@keyframes bar-shine {
+  from {
+    background-position: -160px 0;
+  }
+  to {
+    background-position: 240px 0;
+  }
+}
+
+.soc-bar-shine {
+  background-image: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: 160px 100%;
+  background-repeat: no-repeat;
+  animation: bar-shine 2.6s ease-in-out infinite;
+}
+
+/* 加载：荧光三点 */
+@keyframes dot-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.soc-dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.soc-dots > span {
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #22d3ee;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.9);
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.soc-dots > span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.soc-dots > span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.soc-dots-dark > span {
+  background: #04121c;
+  box-shadow: none;
+}
+
+/* 大数字荧光缓闪 */
+@keyframes value-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(34, 211, 238, 0);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(34, 211, 238, 0.45),
+      0 0 32px rgba(34, 211, 238, 0.2);
+  }
+}
+
+.animate-value-glow {
+  animation: value-glow 3.4s ease-in-out infinite;
+}
+
+/* hover 左侧荧光线 */
+.soc-edge {
+  position: relative;
+}
+
+.soc-edge::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #22d3ee;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.8);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s ease;
+}
+
+.soc-edge:hover::before,
+.soc-edge.soc-edge-active::before {
+  transform: scaleY(1);
+}
+
+/* 打字机光标（荧光） */
+.soc-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background: #22d3ee;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.9);
+  vertical-align: text-bottom;
+  animation: caret-blink 1.05s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-toast-in {
+  animation: toast-in 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-overlay-in {
+  animation: overlay-in 0.24s ease-out both;
+}
+
+@keyframes watermark-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-watermark {
+  animation: watermark-breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes donut-in {
+  from {
+    transform: rotate(-80deg) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-donut-in {
+  animation: donut-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #17233d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #24344f;
+}
+
+/* ============ 键盘可达性 ============ */
+
+:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.75);
+  outline-offset: 2px;
+}
+
+/* ============ 无障碍：跟随系统减弱动效 ============ */
+
+@media (prefers-reduced-motion: reduce) {
+  .soc-scanline,
+  .soc-bg-grid,
+  .animate-fade-slide-in,
+  .animate-panel-reveal,
+  .animate-gentle-float,
+  .animate-tab-underline,
+  .animate-step-breathe,
+  .soc-bar-shine,
+  .animate-value-glow,
+  .animate-watermark,
+  .animate-donut-in,
+  .animate-toast-in,
+  .animate-modal-in,
+  .animate-overlay-in,
+  .soc-dots > span,
+  .soc-caret {
+    animation: none !important;
+  }
+
+  .soc-draw-line {
+    animation: none !important;
+    stroke-dasharray: none;
+  }
+}

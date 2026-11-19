@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="660" viewBox="0 0 1180 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2937"/>
+    </marker>
+  </defs>
+  <rect width="1180" height="660" fill="#ffffff"/>
+  <text x="590" y="34" text-anchor="middle" fill="#111827" font-size="17" font-weight="bold">六路意图路由：按查询信号优先级分流（自上而下首个命中即路由）</text>
+
+  <!-- 左：查询输入 -->
+  <rect x="30" y="270" width="150" height="90" rx="10" fill="#1f3a5f"/>
+  <text x="105" y="305" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">查询 Query</text>
+  <text x="105" y="327" text-anchor="middle" fill="#ffffff" font-size="10.5">信号抽取：CVE 编号 /</text>
+  <text x="105" y="343" text-anchor="middle" fill="#ffffff" font-size="10.5">时间词 / 组件名 / 年月分数</text>
+
+  <!-- 中间判断列 -->
+  <g font-size="12">
+    <!-- 判断1 -->
+    <polygon points="330,80 430,112 330,144 230,112" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.3"/>
+    <text x="330" y="117" text-anchor="middle" fill="#111827" font-weight="bold">含 CVE 编号？</text>
+    <!-- 判断2 -->
+    <polygon points="330,175 430,207 330,239 230,207" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.3"/>
+    <text x="330" y="212" text-anchor="middle" fill="#111827" font-weight="bold">含组件名？</text>
+    <!-- 判断3 -->
+    <polygon points="330,270 430,302 330,334 230,302" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.3"/>
+    <text x="330" y="300" text-anchor="middle" fill="#111827" font-weight="bold">含年月+分数？</text>
+    <text x="330" y="318" text-anchor="middle" fill="#111827" font-size="10">（结构化筛选）</text>
+    <!-- 判断4 -->
+    <polygon points="330,365 430,397 330,429 230,397" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.3"/>
+    <text x="330" y="402" text-anchor="middle" fill="#111827" font-weight="bold">含平台名？</text>
+    <!-- 判断5 -->
+    <polygon points="330,460 430,492 330,524 230,492" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.3"/>
+    <text x="330" y="490" text-anchor="middle" fill="#111827" font-weight="bold">含时间词？</text>
+    <text x="330" y="508" text-anchor="middle" fill="#111827" font-size="10">（今天/前天/近几个月）</text>
+  </g>
+
+  <!-- 查询 → 判断1，判断间否链 -->
+  <path d="M 180 300 L 205 300 L 205 112 L 226 112" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arr)"/>
+  <g stroke="#1f2937" stroke-width="1.5">
+    <line x1="430" y1="112" x2="452" y2="112"/><line x1="452" y1="112" x2="452" y2="60"/>
+    <line x1="330" y1="144" x2="330" y2="171" marker-end="url(#arr)"/>
+    <line x1="330" y1="239" x2="330" y2="266" marker-end="url(#arr)"/>
+    <line x1="330" y1="334" x2="330" y2="361" marker-end="url(#arr)"/>
+    <line x1="330" y1="429" x2="330" y2="456" marker-end="url(#arr)"/>
+  </g>
+  <g font-size="10.5" fill="#15803d" font-weight="bold">
+    <text x="336" y="162">是</text><text x="336" y="257">是</text><text x="336" y="352">是</text>
+    <text x="336" y="447">是</text><text x="336" y="542">是</text>
+  </g>
+  <text x="452" y="52" fill="#374151" font-size="10.5">是</text>
+  <!-- 判断5 否 → 兜底 -->
+  <line x1="330" y1="524" x2="330" y2="560" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="336" y="546" fill="#374151" font-size="10.5">否（缺省路由）</text>
+
+  <!-- 右：六路路由框 -->
+  <g font-size="12">
+    <rect x="470" y="42" width="360" height="72" rx="8" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="486" y="68" fill="#111827" font-weight="bold">① SQL 点查</text>
+    <text x="486" y="88" fill="#374151" font-size="10.5">单卡深挖 / 多卡对比 · 毫秒级 · 卡片独占原则</text>
+    <text x="486" y="104" fill="#1f3a5f" font-size="10.5" font-weight="bold">实测 0.5s 内出卡 · 41 个 LiteLLM CVE 全命中</text>
+
+    <rect x="470" y="140" width="360" height="72" rx="8" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="486" y="166" fill="#111827" font-weight="bold">② 组件点查</text>
+    <text x="486" y="186" fill="#374151" font-size="10.5">affected_component 全等匹配 + 标题精确召回 + 向量补深度</text>
+    <text x="486" y="202" fill="#1f3a5f" font-size="10.5" font-weight="bold">Open WebUI 40 CVE · 标题命中文章 score≈1.0</text>
+
+    <rect x="470" y="238" width="360" height="72" rx="8" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="486" y="264" fill="#111827" font-weight="bold">③ 条件筛选</text>
+    <text x="486" y="284" fill="#374151" font-size="10.5">publish_time 月分 + CVSS 阈值 + ai_related 组合 SQL</text>
+    <text x="486" y="300" fill="#1f3a5f" font-size="10.5" font-weight="bold">"2026-09 CVSS≥9 AI" → 8 条真卡按分排序</text>
+
+    <rect x="470" y="336" width="360" height="72" rx="8" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="486" y="362" fill="#111827" font-weight="bold">④ 平台检索</text>
+    <text x="486" y="382" fill="#374151" font-size="10.5">8 大平台 source/url 过滤 · 过滤空则回落普通向量</text>
+    <text x="486" y="398" fill="#1f3a5f" font-size="10.5" font-weight="bold">先知社区 495 篇 · 精确按源归位</text>
+
+    <rect x="470" y="434" width="360" height="72" rx="8" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="486" y="460" fill="#111827" font-weight="bold">⑤ 时间窗检索</text>
+    <text x="486" y="480" fill="#374151" font-size="10.5">时间词→天数（今天1/前天3/这周7/近几个月90）+ 主题卡融合</text>
+    <text x="486" y="496" fill="#1f3a5f" font-size="10.5" font-weight="bold">窗口空自动放宽 · 主题卡同吃窗口防旧卡</text>
+
+    <rect x="470" y="532" width="360" height="72" rx="8" fill="#fff" stroke="#1f3a5f" stroke-width="1.6"/>
+    <text x="486" y="558" fill="#111827" font-weight="bold">⑥ 语义向量（缺省）</text>
+    <text x="486" y="578" fill="#374151" font-size="10.5">WeMM 2560 维 top-k · 域过滤（paper/article）· 弱召回混合</text>
+    <text x="486" y="594" fill="#1f3a5f" font-size="10.5" font-weight="bold">缝合卡自动识别 · 阈值 0.3</text>
+  </g>
+
+  <!-- 路由框 → 生成 -->
+  <path d="M 830 300 L 900 300 L 900 300" fill="none" stroke="#1f2937"/>
+  <line x1="830" y1="300" x2="920" y2="300" stroke="#1f2937" stroke-width="1.6"/>
+  <path d="M 920 78 L 940 78 L 940 568 L 920 568" fill="none" stroke="#9ca3af" stroke-width="1.2"/>
+  <g stroke="#9ca3af" stroke-width="1.2" fill="none">
+    <path d="M 830 78 L 940 78"/>
+    <path d="M 830 176 L 940 176"/>
+    <path d="M 830 274 L 940 274"/>
+    <path d="M 830 372 L 940 372"/>
+    <path d="M 830 470 L 940 470"/>
+    <path d="M 830 568 L 940 568"/>
+  </g>
+  <line x1="940" y1="300" x2="972" y2="300" stroke="#1f2937" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <rect x="976" y="240" width="176" height="120" rx="10" fill="#1f3a5f"/>
+  <text x="1064" y="282" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">证据组装</text>
+  <text x="1064" y="306" text-anchor="middle" fill="#ffffff" font-size="11">卡片 + 切片 + 缝合</text>
+  <text x="1064" y="326" text-anchor="middle" fill="#ffffff" font-size="11">→ LLM 生成 → 校验</text>
+
+  <!-- 底部说明 -->
+  <rect x="30" y="600" width="1120" height="44" rx="6" fill="#f5f6f8" stroke="#9ca3af"/>
+  <text x="590" y="627" text-anchor="middle" fill="#1f2937" font-size="11.5">设计原则：结构化信号（编号/日期/分数/组件/平台）优先走精确检索——元数据不是语义，向量搜不准；语义向量只承担真正的模糊意图（实测修复：LiteLLM 拒答、2024 旧卡混入、prompt 误路由）</text>
+</svg>

@@ -1,0 +1,77 @@
+{
+ "gate": "10/10",
+ "passed": true,
+ "dim": 2560,
+ "rows": [
+  {
+   "sample": "cve/ai_related=1[0]",
+   "id": "b1b3a8a37c0a8b79f477abedb7b739081c6fda32",
+   "cosine": 0.99803,
+   "ok": true,
+   "title": "CVE-2025-62116 [MEDIUM]: Missing Authorization vulnerability"
+  },
+  {
+   "sample": "cve/ai_related=1[1]",
+   "id": "1fdfa33736589bc830b70bd55d4e23714368bf44",
+   "cosine": 1.00247,
+   "ok": true,
+   "title": "CVE-2025-62154 [MEDIUM]: Missing Authorization vulnerability"
+  },
+  {
+   "sample": "cve/ai_related=0[0]",
+   "id": "573beb2ac193e6be92cc803636dab19753819d44",
+   "cosine": 1.00314,
+   "ok": true,
+   "title": "CVE-2000-0998: Format string vulnerability in top program al"
+  },
+  {
+   "sample": "cve/ai_related=0[1]",
+   "id": "86b3ba90e9bbaaa56a3d709270f8db3239c92cc9",
+   "cosine": 1.00248,
+   "ok": true,
+   "title": "CVE-2000-1001: add_2_basket.asp in Element InstantShop allow"
+  },
+  {
+   "sample": "article[0]",
+   "id": "42a50963384509fc4f47e62b14a21a0cf57b70a0",
+   "cosine": 1.00056,
+   "ok": true,
+   "title": "Agentic Skills 供应链攻击与运行监测防御范式"
+  },
+  {
+   "sample": "article[1]",
+   "id": "1f6254d0882fe97ebf0908f79918aa91248c59cf",
+   "cosine": 0.99852,
+   "ok": true,
+   "title": "Agentic Skills 供应链攻击与运行监测防御范式"
+  },
+  {
+   "sample": "article[2]",
+   "id": "4bfa6ea0769ddf21d543c2b36519d18062a672cf",
+   "cosine": 1.00296,
+   "ok": true,
+   "title": "Agentic Skills 供应链攻击与运行监测防御范式"
+  },
+  {
+   "sample": "paper[0]",
+   "id": "551c43a00d73ae27ca97ea6992571729ba6758ea",
+   "cosine": 1.00161,
+   "ok": true,
+   "title": "Optimizing AI Agent Attacks With Synthetic Data"
+  },
+  {
+   "sample": "paper[1]",
+   "id": "052253b88aadae3b5c879469349d24e5ba49cf8c",
+   "cosine": 0.99893,
+   "ok": true,
+   "title": "BountyBench: Dollar Impact of AI Agent Attackers and Defende"
+  },
+  {
+   "sample": "daily[0]",
+   "id": "75d729414e66d60a217e0643e8824064d040af37",
+   "cosine": 1.00056,
+   "ok": true,
+   "title": "每日 AI 安全资讯（2026-09-24）"
+  }
+ ]
+}

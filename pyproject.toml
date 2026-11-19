@@ -1,0 +1,22 @@
+[project]
+name = "aegis-intel"
+version = "0.1.0"
+description = "Aegis Intel — 智能体驱动的 AI 安全知识情报系统"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "markdownify>=0.13",
+    "playwright>=1.45",
+    "feedparser>=6.0.14",
+    "listparser>=0.20",
+    "trafilatura>=2.2.0",
+    "pytest>=9.1.1",
+    "curl-cffi>=0.16.3",
+    "chromadb>=1.5.9",
+    "sentence-transformers>=6.1.0",
+    "transformers==5.2.0",
+    "qwen-vl-utils>=0.0.14",
+    "fastapi>=0.143.0",
+    "uvicorn>=0.54.0",
+]

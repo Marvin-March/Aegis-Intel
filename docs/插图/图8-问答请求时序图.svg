@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f3a5f"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="780" fill="#ffffff"/>
+  <text x="600" y="30" text-anchor="middle" fill="#111827" font-size="17" font-weight="bold">问答请求处理时序图（POST /ask 端到端，各段实测耗时见右侧标注）</text>
+
+  <!-- 泳道头 -->
+  <g font-size="13" font-weight="bold" text-anchor="middle">
+    <rect x="40" y="50" width="190" height="40" rx="6" fill="#1f3a5f"/><text x="135" y="76" fill="#ffffff">用户</text>
+    <rect x="270" y="50" width="190" height="40" rx="6" fill="#1f3a5f"/><text x="365" y="76" fill="#ffffff">前端 React</text>
+    <rect x="500" y="50" width="190" height="40" rx="6" fill="#1f3a5f"/><text x="595" y="76" fill="#ffffff">FastAPI / search.py</text>
+    <rect x="730" y="50" width="210" height="40" rx="6" fill="#1f3a5f"/><text x="835" y="76" fill="#ffffff">检索与缝合层</text>
+    <rect x="980" y="50" width="190" height="40" rx="6" fill="#1f3a5f"/><text x="1075" y="76" fill="#ffffff">LLM 与校验器</text>
+  </g>
+  <!-- 生命线 -->
+  <g stroke="#c3cad6" stroke-width="1.4" stroke-dasharray="5 5">
+    <line x1="135" y1="90" x2="135" y2="740"/>
+    <line x1="365" y1="90" x2="365" y2="740"/>
+    <line x1="595" y1="90" x2="595" y2="740"/>
+    <line x1="835" y1="90" x2="835" y2="740"/>
+    <line x1="1075" y1="90" x2="1075" y2="740"/>
+  </g>
+
+  <!-- 1 用户→前端 -->
+  <line x1="135" y1="120" x2="361" y2="120" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="248" y="112" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">输入问题（可含多轮 history）</text>
+
+  <!-- 2 前端→API -->
+  <line x1="365" y1="150" x2="591" y2="150" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="478" y="142" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">POST /ask {query, k, history}</text>
+
+  <!-- 3 路由判定（API 自框） -->
+  <rect x="512" y="172" width="166" height="66" rx="6" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.4"/>
+  <text x="595" y="196" text-anchor="middle" font-size="11.5" fill="#111827" font-weight="bold">意图路由（六路分流）</text>
+  <text x="595" y="215" text-anchor="middle" font-size="10.5" fill="#374151">闲聊/自述 → 本地即时应答</text>
+  <text x="595" y="231" text-anchor="middle" font-size="10.5" fill="#374151">多轮继承改写</text>
+  <text x="700" y="192" font-size="10.5" fill="#1f3a5f" font-weight="bold">≈100ms</text>
+
+  <!-- 4 API→检索层 -->
+  <line x1="595" y1="258" x2="831" y2="258" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="713" y="250" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">按路由调用工具</text>
+
+  <!-- 5 检索层自框：三种工具 -->
+  <rect x="742" y="274" width="186" height="112" rx="6" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.4"/>
+  <text x="835" y="297" text-anchor="middle" font-size="11.5" fill="#111827" font-weight="bold">精确检索 / 语义召回</text>
+  <text x="835" y="317" text-anchor="middle" font-size="10.5" fill="#374151">SQL 点查 · 组件点查 · 条件筛选</text>
+  <text x="835" y="335" text-anchor="middle" font-size="10.5" fill="#374151">向量 top-k · 时间窗 · 平台过滤</text>
+  <text x="835" y="359" text-anchor="middle" font-size="10.5" fill="#1f3a5f" font-weight="bold">缝合表反查 /related</text>
+  <text x="942" y="288" font-size="10.5" fill="#1f3a5f" font-weight="bold">0.5~2.7s</text>
+
+  <!-- 6 检索层→API -->
+  <line x1="835" y1="406" x2="599" y2="406" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="717" y="398" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">漏洞卡片 + 切片 + 关联文章</text>
+  <text x="717" y="422" text-anchor="middle" font-size="10" fill="#15803d" stroke="#ffffff" stroke-width="4" paint-order="stroke">检索为空 → 直接诚实拒答（不调 LLM）</text>
+
+  <!-- 7 API→LLM -->
+  <line x1="595" y1="452" x2="1071" y2="452" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="835" y="444" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">prompt 组装：时效锚 + 卡片 + 切片 + 路由指令</text>
+
+  <!-- 8 LLM 自框 -->
+  <rect x="988" y="470" width="176" height="60" rx="6" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.4"/>
+  <text x="1076" y="493" text-anchor="middle" font-size="11.5" fill="#111827" font-weight="bold">DeepSeek 生成</text>
+  <text x="1076" y="513" text-anchor="middle" font-size="10.5" fill="#374151">统一 LLM 接入层（API 可配置）</text>
+  <text x="1076" y="548" font-size="10.5" fill="#1f3a5f" font-weight="bold" text-anchor="middle">9~31s（2000~3000 字）</text>
+
+  <!-- 9 LLM→校验 -->
+  <line x1="1075" y1="556" x2="1075" y2="584" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <rect x="984" y="588" width="182" height="52" rx="6" fill="#f5f6f8" stroke="#b91c1c" stroke-width="1.4"/>
+  <text x="1075" y="609" text-anchor="middle" font-size="11.5" fill="#111827" font-weight="bold">fabricate_check 校验</text>
+  <text x="1075" y="628" text-anchor="middle" font-size="10.5" fill="#374151">CVE 编号逐一比对库内记录</text>
+
+  <!-- 10 失败回环：重生成 -->
+  <path d="M 984 614 L 930 614 L 930 470 L 984 470" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 4" marker-end="url(#arrR)"/>
+  <text x="928" y="545" text-anchor="end" font-size="10.5" fill="#b91c1c" font-weight="bold">不通过 → 拦截重生成</text>
+
+  <!-- 11 校验→API -->
+  <line x1="984" y1="662" x2="599" y2="662" stroke="#15803d" stroke-width="1.7" marker-end="url(#arrG)"/>
+  <text x="790" y="654" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">通过：answer + cards + hits + fabrications</text>
+
+  <!-- 12 API→前端 -->
+  <line x1="595" y1="692" x2="369" y2="692" stroke="#1f3a5f" stroke-width="1.7" marker-end="url(#arr)"/>
+  <text x="482" y="684" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">JSON 响应（Stepper 四步可视化）</text>
+
+  <!-- 13 前端→用户 -->
+  <line x1="365" y1="720" x2="139" y2="720" stroke="#15803d" stroke-width="1.7" marker-end="url(#arrG)"/>
+  <text x="252" y="712" text-anchor="middle" font-size="11.5" fill="#1f2937" stroke="#ffffff" stroke-width="4" paint-order="stroke">渲染回答，[卡N]/[N] 锚点可点击溯源</text>
+
+  <!-- 右侧总耗时标注 -->
+  <rect x="1020" y="700" width="160" height="52" rx="6" fill="#f5f6f8" stroke="#9ca3af"/>
+  <text x="1100" y="721" text-anchor="middle" font-size="11" fill="#111827" font-weight="bold">端到端 11~33s</text>
+  <text x="1100" y="740" text-anchor="middle" font-size="10" fill="#374151">生成段占比 ≥85%</text>
+</svg>

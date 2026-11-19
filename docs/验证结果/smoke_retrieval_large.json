@@ -1,0 +1,2204 @@
+{
+ "device": "cpu",
+ "store": "data/vector_store",
+ "total": 39,
+ "hit": 39,
+ "per_category": {
+  "A": "8/8",
+  "B": "10/10",
+  "C": "6/6",
+  "D": "5/5",
+  "F": "1/1",
+  "G": "4/4",
+  "E点查": "3/3",
+  "E拒答": "2/2"
+ },
+ "top1_scores": {
+  "min": 0.5152,
+  "median": 0.6359,
+  "max": 0.7983
+ },
+ "point_cves": [
+  "CVE-2026-59822",
+  "CVE-2025-15379",
+  "CVE-2025-71338"
+ ],
+ "results": [
+  {
+   "cat": "A",
+   "q": "vLLM 推理引擎有哪些已知漏洞？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "vllm"
+   ],
+   "top1_score": 0.656,
+   "embed_s": 3.04,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.656,
+     "domain": "article",
+     "title": "vLLM高危漏洞可致远程代码执行（CVE-2025-62164）",
+     "cve_ids": "CVE-2025-62164"
+    },
+    {
+     "rank": 2,
+     "score": 0.6136,
+     "domain": "article",
+     "title": "vLLM 曝出 CVSS 9.8 高危远程代码执行漏洞，AI 服务器面临攻击风险",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6101,
+     "domain": "article",
+     "title": "CVE-2025-32444（CVSS 10分）：vLLM框架Mooncake集成组件曝高危远程代码执行漏洞，威胁AI基础设施安全",
+     "cve_ids": "CVE-2025-32444"
+    },
+    {
+     "rank": 4,
+     "score": 0.5842,
+     "domain": "article",
+     "title": "vLLM高危远程代码执行漏洞分析（CVE-2025-62164）",
+     "cve_ids": "CVE-2025-62164"
+    },
+    {
+     "rank": 5,
+     "score": 0.5713,
+     "domain": "article",
+     "title": "vLLM 远程代码执行漏洞(CVE-2025-66448)",
+     "cve_ids": "CVE-2025-66448"
+    },
+    {
+     "rank": 6,
+     "score": 0.552,
+     "domain": "cve",
+     "title": "PYSEC-2026-3704: vLLM: Completion prompt lists fan out into unbounded ",
+     "cve_ids": "CVE-2026-73559"
+    },
+    {
+     "rank": 7,
+     "score": 0.5428,
+     "domain": "cve",
+     "title": "GHSA-87x5-vmc3-756j: vLLM: Completion prompt lists fan out into unboun",
+     "cve_ids": "CVE-2026-73559"
+    },
+    {
+     "rank": 8,
+     "score": 0.5391,
+     "domain": "article",
+     "title": "研究人员发现严重AI漏洞影响Meta、Nvidia及微软推理框架",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "LiteLLM 代理服务的认证绕过漏洞是怎么回事？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "litellm"
+   ],
+   "top1_score": 0.5861,
+   "embed_s": 2.5,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5861,
+     "domain": "article",
+     "title": "LiteLLM AI 网关攻击面分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5703,
+     "domain": "article",
+     "title": "LiteLLM AI 网关攻击面分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.568,
+     "domain": "cve",
+     "title": "CVE-2026-84377 [MEDIUM]: LiteLLM is a proxy server (AI Gateway) to cal",
+     "cve_ids": "CVE-2026-84377"
+    },
+    {
+     "rank": 4,
+     "score": 0.5641,
+     "domain": "cve",
+     "title": "CVE-2026-59823: LiteLLM is a proxy server (AI Gateway) to call LLM API",
+     "cve_ids": "CVE-2026-59823"
+    },
+    {
+     "rank": 5,
+     "score": 0.5641,
+     "domain": "article",
+     "title": "LiteLLM漏洞（CVE-2026-42271）遭野外利用，可链式触发未授权远程代码执行",
+     "cve_ids": "CVE-2026-42208,CVE-2026-42271,CVE-2026-48710"
+    },
+    {
+     "rank": 6,
+     "score": 0.5585,
+     "domain": "article",
+     "title": "LiteLLM SQL注入高危漏洞正遭野外利用",
+     "cve_ids": "CVE-2026-42208"
+    },
+    {
+     "rank": 7,
+     "score": 0.558,
+     "domain": "article",
+     "title": "黑客利用 LiteLLM 管理 API 漏洞窃取机密并攻击 AI 网关服务器",
+     "cve_ids": "CVE-2026-35029"
+    },
+    {
+     "rank": 8,
+     "score": 0.5501,
+     "domain": "cve",
+     "title": "CVE-2026-59822 [HIGH]: LiteLLM is a proxy server (AI Gateway) to call ",
+     "cve_ids": "CVE-2026-59822"
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "n8n 工作流平台出过什么安全问题？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "n8n"
+   ],
+   "top1_score": 0.5652,
+   "embed_s": 1.07,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5652,
+     "domain": "article",
+     "title": "n8n AI工作流平台曝高危RCE漏洞，攻击者可完全接管系统",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.52,
+     "domain": "article",
+     "title": "CVE-2026-33696：n8n原型链污染导致远程命令执行漏洞分析",
+     "cve_ids": "CVE-2026-33696"
+    },
+    {
+     "rank": 3,
+     "score": 0.5146,
+     "domain": "article",
+     "title": "被拐的凭据：n8n 共享工作流代理劫持漏洞分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5034,
+     "domain": "article",
+     "title": "n8n 表达式沙箱逃逸导致远程代码执行漏洞分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.503,
+     "domain": "article",
+     "title": "n8n CVE-2026-21858 漏洞分析",
+     "cve_ids": "CVE-2026-21858"
+    },
+    {
+     "rank": 6,
+     "score": 0.5016,
+     "domain": "article",
+     "title": "CVE-2026-21877 ：n8n Git 节点远程代码执行漏洞",
+     "cve_ids": "CVE-2025-65964,CVE-2026-21877"
+    },
+    {
+     "rank": 7,
+     "score": 0.5013,
+     "domain": "article",
+     "title": "CVE-2026-25049：n8n表达式解构赋值沙箱逃逸后端调用链深度解析",
+     "cve_ids": "CVE-2026-25049"
+    },
+    {
+     "rank": 8,
+     "score": 0.5005,
+     "domain": "article",
+     "title": "CVE-2025-62726：n8n Git 节点裸仓库 RCE 漏洞分析",
+     "cve_ids": "CVE-2025-62726"
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "Langflow 的代码执行漏洞是怎么回事？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "langflow"
+   ],
+   "top1_score": 0.6231,
+   "embed_s": 0.71,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6231,
+     "domain": "article",
+     "title": "AI开发工具Langflow高危漏洞遭活跃利用，可导致服务器任意代码执行",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.572,
+     "domain": "article",
+     "title": "Langflow CSV Agent的剖析与复现",
+     "cve_ids": "CVE-2026-27966"
+    },
+    {
+     "rank": 3,
+     "score": 0.5642,
+     "domain": "article",
+     "title": "LangFlow任意 npm/PyPI 包代码执行漏洞",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5615,
+     "domain": "article",
+     "title": "\"lc\"键漏洞：LangChain高危缺陷（CVE-2025-68664）使提示注入攻击可窃取机密",
+     "cve_ids": "CVE-2025-68664"
+    },
+    {
+     "rank": 5,
+     "score": 0.5488,
+     "domain": "article",
+     "title": "从langflow代码执行漏洞到FastApi内存马",
+     "cve_ids": "CVE-2025-3248"
+    },
+    {
+     "rank": 6,
+     "score": 0.546,
+     "domain": "article",
+     "title": "给AI工作流平台塞一个恶意组件就能反弹Shell",
+     "cve_ids": "CVE-2026-33017"
+    },
+    {
+     "rank": 7,
+     "score": 0.5453,
+     "domain": "article",
+     "title": "Langflow CSV Agent 远程代码执行漏洞（CVE-2026-27966）代码层面深度分析",
+     "cve_ids": "CVE-2026-27966"
+    },
+    {
+     "rank": 8,
+     "score": 0.545,
+     "domain": "article",
+     "title": "CVE-2026-10561 Langflow 未授权 RCE 利用链分析与复现",
+     "cve_ids": "CVE-2026-10561"
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "Ollama 本地模型服务有什么暴露风险？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "ollama"
+   ],
+   "top1_score": 0.6358,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6358,
+     "domain": "article",
+     "title": "Ollama公网暴露实录：API全裸、配置全露、2分钟被扫",
+     "cve_ids": "CVE-2024-37032,CVE-2024-39720"
+    },
+    {
+     "rank": 2,
+     "score": 0.6109,
+     "domain": "article",
+     "title": "AI基础设施安全-云服务配置错误与容器编排漏洞",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "Gradio 组件的文件路径操纵漏洞是什么？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "gradio"
+   ],
+   "top1_score": 0.7339,
+   "embed_s": 0.48,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7339,
+     "domain": "cve",
+     "title": "GHSA-8jw3-6x8j-v96g: Gradio Allows Unauthorized File Copy via Path Man",
+     "cve_ids": "CVE-2025-48889"
+    },
+    {
+     "rank": 2,
+     "score": 0.733,
+     "domain": "cve",
+     "title": "GHSA-f3h9-8phc-6gvh: Gradio Path Traversal vulnerability",
+     "cve_ids": "CVE-2024-0964"
+    },
+    {
+     "rank": 3,
+     "score": 0.731,
+     "domain": "cve",
+     "title": "GHSA-f3h9-8phc-6gvh: Gradio Path Traversal vulnerability",
+     "cve_ids": "CVE-2024-0964"
+    },
+    {
+     "rank": 4,
+     "score": 0.7297,
+     "domain": "cve",
+     "title": "GHSA-rhm9-gp5p-5248: Gradio vulnerable to arbitrary file read with Fil",
+     "cve_ids": "CVE-2024-51751"
+    },
+    {
+     "rank": 5,
+     "score": 0.7288,
+     "domain": "cve",
+     "title": "GHSA-prpg-p95c-32fv: Gradio Path Traversal vulnerability",
+     "cve_ids": "CVE-2024-12217"
+    },
+    {
+     "rank": 6,
+     "score": 0.7286,
+     "domain": "cve",
+     "title": "GHSA-rhm9-gp5p-5248: Gradio vulnerable to arbitrary file read with Fil",
+     "cve_ids": "CVE-2024-51751"
+    },
+    {
+     "rank": 7,
+     "score": 0.7279,
+     "domain": "cve",
+     "title": "CVE-2026-49119 [HIGH]: Gradio before 6.16.0 contain a path traversal v",
+     "cve_ids": "CVE-2026-49119"
+    },
+    {
+     "rank": 8,
+     "score": 0.7255,
+     "domain": "cve",
+     "title": "GHSA-37qc-qgx6-9xjv: Gradio has a one-level read path traversal in `/c",
+     "cve_ids": "CVE-2024-47166"
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "Dify 沙箱逃逸漏洞分析到什么程度了？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "dify"
+   ],
+   "top1_score": 0.6802,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6802,
+     "domain": "article",
+     "title": "Dify 沙箱逃逸漏洞 RCE 分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5921,
+     "domain": "article",
+     "title": "Dify1.6.1版本：未授权SSRF及代码沙箱",
+     "cve_ids": "CVE-2025-29720,CVE-2025-56520"
+    },
+    {
+     "rank": 3,
+     "score": 0.5441,
+     "domain": "article",
+     "title": "Flowise3.1.1版本深度研究：SSRF拿云账户及沙箱逃逸RCE",
+     "cve_ids": "CVE-2025-59528,CVE-2025-8943"
+    },
+    {
+     "rank": 4,
+     "score": 0.5266,
+     "domain": "article",
+     "title": "DeepSeek Harness沙箱逃逸拆解",
+     "cve_ids": "CVE-2026-82533"
+    },
+    {
+     "rank": 5,
+     "score": 0.4961,
+     "domain": "article",
+     "title": "【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用",
+     "cve_ids": "CVE-2026-26023"
+    }
+   ]
+  },
+  {
+   "cat": "A",
+   "q": "ComfyUI 有没有已知漏洞？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "comfyui"
+   ],
+   "top1_score": 0.5837,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5837,
+     "domain": "article",
+     "title": "ComfyUI-Manager 远程代码执行(CVE-2025-67303) 漏洞复现",
+     "cve_ids": "CVE-2025-67303"
+    },
+    {
+     "rank": 2,
+     "score": 0.5643,
+     "domain": "article",
+     "title": "ComfyUI 9.3 分反序列化 RCE 实测：官方没当漏洞修的\"唯一漏网之鱼\"",
+     "cve_ids": "CVE-2025-67303,CVE-2026-68771"
+    },
+    {
+     "rank": 3,
+     "score": 0.5377,
+     "domain": "article",
+     "title": "AI组件 ComfyUI 未授权命令执行漏洞分析(CVE-2025-67303)",
+     "cve_ids": "CVE-2025-67303"
+    },
+    {
+     "rank": 4,
+     "score": 0.534,
+     "domain": "cve",
+     "title": "CVE-2026-56673 [HIGH]: ComfyUI is a modular diffusion model GUI, API, ",
+     "cve_ids": "CVE-2026-56673"
+    },
+    {
+     "rank": 5,
+     "score": 0.5315,
+     "domain": "cve",
+     "title": "CVE-2026-56670 [HIGH]: ComfyUI is a modular diffusion model GUI, api a",
+     "cve_ids": "CVE-2026-56670"
+    },
+    {
+     "rank": 6,
+     "score": 0.5266,
+     "domain": "cve",
+     "title": "CVE-2026-56671 [HIGH]: ComfyUI is a modular diffusion model GUI, api a",
+     "cve_ids": "CVE-2026-56671"
+    },
+    {
+     "rank": 7,
+     "score": 0.5266,
+     "domain": "article",
+     "title": "ComfyUI-Manager 远程代码执行 (QVD-2026-2759) 漏洞复现",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5264,
+     "domain": "article",
+     "title": "ComfyUI-Manager CRLF注入导致代码执行漏洞分析及CVE-2025-67303 绕过分析",
+     "cve_ids": "CVE-2025-67303"
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "针对 MCP 工具描述的投毒攻击有哪些案例？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "mcp"
+   ],
+   "top1_score": 0.6711,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6711,
+     "domain": "article",
+     "title": "MCP工具链安全：从描述投毒到凭据窃取的完整攻击路径剖析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.6593,
+     "domain": "article",
+     "title": "MCP协议安全-模型上下文协议的工具投毒与权限滥用",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6583,
+     "domain": "article",
+     "title": "MCP 也会被投毒：恶意工具描述如何诱导 Agent 主动调用危险能力",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.6554,
+     "domain": "article",
+     "title": "当3+5=？成为攻击入口：MCP 工具投毒与链式滥用攻击场景复盘",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.6512,
+     "domain": "article",
+     "title": "实战｜MCP 工具生态的\"幽灵克隆\"——供应链投毒的新战场",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.6496,
+     "domain": "article",
+     "title": "15 次干净发布，换来 300 家组织的凭据：MCP 供应链投毒的量化测量与驻留防护",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.6465,
+     "domain": "article",
+     "title": "从单点投毒到系统沦陷：多智能体信任链攻击的五种实战手法",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.6457,
+     "domain": "article",
+     "title": "给AI下毒：我在PyPI投毒了3个MCP工具包的测试经历",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "提示词注入的防御清单有哪些要点？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6657,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6657,
+     "domain": "article",
+     "title": "【翻译】LLM01:2023 – LLMs(大型语言模型)中的提示词注入",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.6521,
+     "domain": "article",
+     "title": "提示词注入攻击",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6472,
+     "domain": "article",
+     "title": "防御间接提示注入攻击",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.6468,
+     "domain": "article",
+     "title": "AI安全攻防系列（2）：Prompt Injection--防御架构",
+     "cve_ids": "CVE-2025-53773"
+    },
+    {
+     "rank": 5,
+     "score": 0.6413,
+     "domain": "article",
+     "title": "提示词注入之Special Token Injection",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.6329,
+     "domain": "article",
+     "title": "AI Agent攻击面介绍与具体案例",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.6276,
+     "domain": "article",
+     "title": "AI安全攻防系列（3）：基于网关的Prompt Injection防御",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.6263,
+     "domain": "article",
+     "title": "AI提示词注入攻防战：从论文挖掘到越狱实战的漏洞发现全解析",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "大模型越狱攻击的最新手法有哪些？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6032,
+   "embed_s": 0.47,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6032,
+     "domain": "article",
+     "title": "大模型内容威胁-漏洞分析及防御实操总结",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5831,
+     "domain": "article",
+     "title": "大模型高级越狱实现手法",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.583,
+     "domain": "article",
+     "title": "大模型安全攻防实践 越狱攻击方法与思路分享",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5787,
+     "domain": "article",
+     "title": "记一次大模型的“越狱”攻击实战",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5394,
+     "domain": "article",
+     "title": "基于多轮上下文的语言模型越狱攻击研究与实证",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.539,
+     "domain": "article",
+     "title": "大模型安全攻击成因与典型方法",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5368,
+     "domain": "article",
+     "title": "某LLM问答系统安全测试报告：提示词注入与越狱攻击分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5342,
+     "domain": "article",
+     "title": "AI大模型越狱：攻击技术深度解析与防御体系构",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "AI 应用沙箱逃逸的利用链是怎样的？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.5616,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5616,
+     "domain": "article",
+     "title": "DeepSeek Harness沙箱逃逸拆解",
+     "cve_ids": "CVE-2026-82533"
+    },
+    {
+     "rank": 2,
+     "score": 0.5456,
+     "domain": "article",
+     "title": "实战｜AI 编码助手的沙箱逃逸推演——当提示注入撞上执行边界",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5145,
+     "domain": "article",
+     "title": "CVE-2026-22686：AI代理沙箱的完美逃逸",
+     "cve_ids": "CVE-2026-22686"
+    },
+    {
+     "rank": 4,
+     "score": 0.5081,
+     "domain": "article",
+     "title": "Agent Session Smuggling：恶意AI如何劫持受害者Agent",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.507,
+     "domain": "article",
+     "title": "大模型编排框架攻防(以LangChain为例)",
+     "cve_ids": "CVE-2023-29374,CVE-2023-36258,CVE-2023-44467,CVE-2023-46229,"
+    },
+    {
+     "rank": 6,
+     "score": 0.504,
+     "domain": "article",
+     "title": "基于阿里AI安全全球挑战赛靶场的AI智能体安全攻防研究",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5028,
+     "domain": "article",
+     "title": "DeepSeekHarness漏洞可导致AIAgent无需用户批准自行关闭文件沙箱",
+     "cve_ids": "CVE-2026-82533"
+    },
+    {
+     "rank": 8,
+     "score": 0.5014,
+     "domain": "article",
+     "title": "Vibe Coding 风险分析与安全实践",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "神经网络后门攻击怎么检测？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6968,
+   "embed_s": 0.52,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6968,
+     "domain": "article",
+     "title": "深度学习后门攻击演进趋势与先进技术分析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.694,
+     "domain": "article",
+     "title": "AI模型水印与后门检测：构建可信赖的AI供应链",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6878,
+     "domain": "article",
+     "title": "神经网络后门攻击技术解析与实践",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.6776,
+     "domain": "article",
+     "title": "大模型安全落地-模型训练安全",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "RAG 知识库投毒攻击如何实现与防御？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6382,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6382,
+     "domain": "article",
+     "title": "RAG投毒攻防--从检索污染到激活检测",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.6313,
+     "domain": "article",
+     "title": "RAG管道安全-检索增强生成系统的攻击面与防御策略",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6245,
+     "domain": "article",
+     "title": "向量数据库的\"引力黑洞\"：RAG知识库投毒从原理到检测的完整实战",
+     "cve_ids": "CVE-2026-26190"
+    },
+    {
+     "rank": 4,
+     "score": 0.6178,
+     "domain": "article",
+     "title": "Data is Code：RAG时代的数据投毒与大模型上下文劫持",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.6118,
+     "domain": "article",
+     "title": "当RAG\"自主检索\"变成攻击跳板：嵌入对撞投毒从语义构造到检索劫持的端到端实战",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.6078,
+     "domain": "article",
+     "title": "AI Agent记忆系统攻击与防御：从上下文污染到工具链劫持的知识泄露",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.6053,
+     "domain": "article",
+     "title": "企业级SaaS中RAG管道的安全防护策略",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "AI 钓鱼邮件生成攻击有什么研究？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6095,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6095,
+     "domain": "article",
+     "title": "钓鱼即服务平台Darcula引入生成式AI 大幅降低网络犯罪门槛",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5683,
+     "domain": "article",
+     "title": "微软警示AI驱动的钓鱼攻击：LLM生成的SVG文件绕过邮件安全检测",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5621,
+     "domain": "article",
+     "title": "新型AI辅助开发钓鱼工具包窃取微软用户登录凭证",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5569,
+     "domain": "article",
+     "title": "AI养蛊：让钓鱼邮件和反钓鱼邮件系统打一架",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5494,
+     "domain": "article",
+     "title": "伊朗APT35组织利用AI钓鱼攻击以色列技术专家",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5483,
+     "domain": "article",
+     "title": "SpamGPT：攻击者利用AI驱动的邮件攻击工具发起大规模钓鱼攻击",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5467,
+     "domain": "article",
+     "title": "网络钓鱼工具包Darcula引入AI技术 网络犯罪门槛进一步降低",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5453,
+     "domain": "article",
+     "title": "黑客利用AI平台窃取Microsoft 365凭证的钓鱼攻击活动",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "蜜罐在 AI 攻防里怎么用？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.5152,
+   "embed_s": 0.47,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5152,
+     "domain": "article",
+     "title": "当蜜罐开始反击：AI 渗透测试反制技术方案（含实验代码）",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5016,
+     "domain": "article",
+     "title": "HiveAI：面向大模型API的蜜罐框架",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.4512,
+     "domain": "article",
+     "title": "【AI赋能安全】面向渗透 Agent 的任务失效化蜜罐探索",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.4416,
+     "domain": "article",
+     "title": "攻击者利用AI生成代码混淆恶意载荷以规避传统防御手段",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.4386,
+     "domain": "article",
+     "title": "从暴露到利用：AI如何压缩你的响应时间窗口",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.438,
+     "domain": "article",
+     "title": "给 AI Agent 埋了 5 档蜜罐账号：前 3 档毫无察觉，第 4 档认出陷阱后仍有三分之二照用",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "智能体的敏感数据外传路径有哪些？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.5321,
+   "embed_s": 0.46,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5321,
+     "domain": "article",
+     "title": "影子AI：发现它，在数据泄露之前",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5283,
+     "domain": "article",
+     "title": "LLM Agent工具调用安全：从函数调用机制到MCP协议攻防的深度剖析",
+     "cve_ids": "CVE-2025-6514"
+    },
+    {
+     "rank": 3,
+     "score": 0.5273,
+     "domain": "article",
+     "title": "AI Agent 上下文Context安全风险:不止于泄露威胁",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5184,
+     "domain": "article",
+     "title": "把 UEBA 搬给 AI Agent：每天 300 万次交互里那 7% 异常是怎么抓出来的",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5155,
+     "domain": "article",
+     "title": "从记忆投毒到数据外传：AI Agent 持久化攻击链深度剖析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5071,
+     "domain": "article",
+     "title": "Agent 安全防御讨论",
+     "cve_ids": "CVE-2024-3094,CVE-2025-14929,CVE-2025-14930,CVE-2025-3248,CV"
+    },
+    {
+     "rank": 7,
+     "score": 0.5045,
+     "domain": "article",
+     "title": "从OpenClaw看AI“数字员工”的十大威胁与检测",
+     "cve_ids": "CVE-2026-24763,CVE-2026-25157,CVE-2026-25253,CVE-2026-25475"
+    },
+    {
+     "rank": 8,
+     "score": 0.5035,
+     "domain": "article",
+     "title": "AI Agent的\"特洛伊木马\"：当Agent看起来在正常工作，实际上已经\"绕路\"了",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "B",
+   "q": "勒索软件结合 AI 的攻击趋势如何？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.636,
+   "embed_s": 0.48,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.636,
+     "domain": "article",
+     "title": "ESET 发现首款AI驱动的勒索软件PromptLock",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5746,
+     "domain": "article",
+     "title": "ESET警告：AI驱动的恶意软件攻击威胁全球网络安全",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5715,
+     "domain": "article",
+     "title": "威胁组织利用AI扩大攻击规模、加速攻击并针对自主AI代理发起攻击",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5501,
+     "domain": "article",
+     "title": "恶意AI模型正掀起网络犯罪新浪潮",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5483,
+     "domain": "article",
+     "title": "人工智能驱动的EvilAI恶意软件窃取浏览器数据并规避检测",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5449,
+     "domain": "article",
+     "title": "美国黑帽大会聚焦AI安全：攻防博弈进入实战阶段",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5443,
+     "domain": "article",
+     "title": "首款集成GPT-4的恶意软件MalTerminal，可动态生成勒索软件与反向Shell",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5443,
+     "domain": "article",
+     "title": "攻击者利用AI生成代码混淆恶意载荷以规避传统防御手段",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "C",
+   "q": "模型权重窃取攻击的可行性分析",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.7983,
+   "embed_s": 0.47,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7983,
+     "domain": "paper",
+     "title": "Model Poisoning Against Federated Model Adaptation with Chain of Bit-F",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.7951,
+     "domain": "paper",
+     "title": "Privacy-Preserving Federated Learning Scheme with Mitigating Model Poi",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.7861,
+     "domain": "paper",
+     "title": "Physical Backdoor Attack Against Deep Learning-Based Modulation Classi",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.7847,
+     "domain": "paper",
+     "title": "FedUP: Efficient Pruning-based Federated Unlearning for Model Poisonin",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.7828,
+     "domain": "paper",
+     "title": "Graph Representation-based Model Poisoning on Federated Large Language",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.7824,
+     "domain": "paper",
+     "title": "Performance Guaranteed Poisoning Attacks in Federated Learning: A Slid",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.7817,
+     "domain": "paper",
+     "title": "A Client-level Assessment of Collaborative Backdoor Poisoning in Non-I",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.7808,
+     "domain": "paper",
+     "title": "Compression Footprints as Security Signals for Model-Poisoning Defense",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "C",
+   "q": "微软 M365 Copilot 的 EchoLeak 零点击漏洞原理是什么？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "copilot"
+   ],
+   "top1_score": 0.677,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.677,
+     "domain": "article",
+     "title": "Microsoft 365 Copilot 提示注入漏洞可导致攻击者窃取敏感数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.6329,
+     "domain": "article",
+     "title": "首个AI零点击漏洞可窃取Microsoft 365 Copilot数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6214,
+     "domain": "article",
+     "title": "GitHub Copilot 与 Visual Studio 漏洞可致攻击者绕过安全防护功能",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.6125,
+     "domain": "article",
+     "title": "微软扩展 Copilot 数据防泄漏支持范围，阻止敏感文件处理",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.6046,
+     "domain": "article",
+     "title": "深入分析微软最新漏洞Microsoft Copilot Reprompt单击触发的隐蔽数据外传链漏洞",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5989,
+     "domain": "article",
+     "title": "产品解析：如何通过 Reco 保障 Microsoft Copilot 安全",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5894,
+     "domain": "article",
+     "title": "微软Copilot曝一键式漏洞：攻击者可悄无声息窃取敏感数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5631,
+     "domain": "article",
+     "title": "微软悬赏最高3万美元征集AI系统漏洞",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "C",
+   "q": "Claude 相关的安全漏洞或滥用事件有哪些？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "claude"
+   ],
+   "top1_score": 0.6845,
+   "embed_s": 0.47,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6845,
+     "domain": "article",
+     "title": "Claude AI漏洞：攻击者可利用代码解释器窃取企业数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.672,
+     "domain": "article",
+     "title": "黑客可利用间接提示操纵Claude AI API窃取用户数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6386,
+     "domain": "article",
+     "title": "Claude Sonnet 4.5 第一手安全测评：超级智能==超级安全？",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.6344,
+     "domain": "article",
+     "title": "Anthropic 确认 Claude 突破测试环境，入侵 3 家组织",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.6323,
+     "domain": "article",
+     "title": "Researchers used Claude to hack OpenAI",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.6263,
+     "domain": "article",
+     "title": "AI安全专题周报（20260925）",
+     "cve_ids": "CVE-2026-32882,CVE-2026-81578,CVE-2026-82078"
+    }
+   ]
+  },
+  {
+   "cat": "C",
+   "q": "ChatGPT 越狱事件有哪些分析？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.641,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.641,
+     "domain": "article",
+     "title": "ChatGPT聊天记录泄露事件：用户将AI视为心理医生、律师与密友",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5683,
+     "domain": "article",
+     "title": "OpenAI强化ChatGPT Atlas防御提示注入攻击",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5637,
+     "domain": "article",
+     "title": "ChatGPT漏洞允许攻击者在共享对话中嵌入恶意SVG与图像文件",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5603,
+     "domain": "article",
+     "title": "ChatGPT漏洞可致攻击者窃取Gmail、Outlook和GitHub敏感数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.526,
+     "domain": "article",
+     "title": "新型越狱攻击可突破ChatGPT、DeepSeek等主流AI服务防护",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5136,
+     "domain": "article",
+     "title": "ShadowLeak零点击漏洞可通过OpenAI ChatGPT深度研究Agent泄露Gmail数据",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5088,
+     "domain": "article",
+     "title": "Grok-4 AI上线48小时即遭新型组合越狱攻击攻破",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5068,
+     "domain": "article",
+     "title": "OpenAI对抗法庭命令：捍卫ChatGPT用户隐私之战",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "C",
+   "q": "多智能体系统的权限混淆攻击怎么防？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.5855,
+   "embed_s": 0.48,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5855,
+     "domain": "article",
+     "title": "Agentic AI的上下文操纵攻击与信任边界安全：自主智能体时代的攻防博弈",
+     "cve_ids": "CVE-2025-32711"
+    },
+    {
+     "rank": 2,
+     "score": 0.5652,
+     "domain": "article",
+     "title": "多智能体系统安全-A2A协议漏洞与跨智能体攻击链",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5543,
+     "domain": "article",
+     "title": "多智能体委派身份混淆实战：已认证 Handoff 如何越权调用高权限工具",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5443,
+     "domain": "article",
+     "title": "大模型驱动的多智能体系统安全现状分析",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "C",
+   "q": "AI 浏览器 Agent 的安全风险有哪些？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6011,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6011,
+     "domain": "article",
+     "title": "AI浏览器易受PromptFix攻击影响，可暗中执行恶意指令",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.6007,
+     "domain": "article",
+     "title": "SquareX 披露AI浏览器易受OAuth攻击与恶意软件威胁",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5975,
+     "domain": "article",
+     "title": "恶意MCP服务器可劫持Cursor内置浏览器",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.571,
+     "domain": "article",
+     "title": "SquareX 研究报告：浏览器 AI 代理正取代员工成为企业网络安全最薄弱环节",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.553,
+     "domain": "article",
+     "title": "人工智能代理时代的安全、风险与合规治理",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5519,
+     "domain": "article",
+     "title": "Chrome 137 引入设备端 Gemini Nano AI 对抗技术支持诈骗",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5483,
+     "domain": "article",
+     "title": "AI浏览器通过模拟人类用户行为绕过付费墙",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5467,
+     "domain": "article",
+     "title": "提示词中间人攻击：威胁ChatGPT等AI系统的隐形威胁",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "D",
+   "q": "机器学习供应链攻击的典型手法有哪些？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6403,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6403,
+     "domain": "article",
+     "title": "AI-ML供应链攻击-从Pickle反序列化到模型命名空间劫持",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.6337,
+     "domain": "article",
+     "title": "AI 供应链安全：从权重投毒到行为感染的暗网路径",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.6323,
+     "domain": "article",
+     "title": "我对AI大模型安全的一些探索",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.6258,
+     "domain": "article",
+     "title": "大模型攻击与传统攻击的进化图谱（二）",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.6185,
+     "domain": "article",
+     "title": "从模型劫持到数据投毒聊聊AI供应链安全",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.6131,
+     "domain": "article",
+     "title": "AI系统威胁建模-基于MITRE-ATLAS的结构化攻击面分析",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "D",
+   "q": "有没有关于 AI Agent 攻击基准的论文？",
+   "where": "{'domain': 'paper'}",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.5302,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5302,
+     "domain": "paper",
+     "title": "ORBIT: A Framework for Multi-Agent Safety and Security Evaluations",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5284,
+     "domain": "paper",
+     "title": "Connecting the Dots in Agentic AI Security: A Cross-Dimensional Threat",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5242,
+     "domain": "paper",
+     "title": "Optimizing AI Agent Attacks With Synthetic Data",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5234,
+     "domain": "paper",
+     "title": "BountyBench: Dollar Impact of AI Agent Attackers and Defenders on Real",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5183,
+     "domain": "paper",
+     "title": "From A2A Attacks to Envelope-Layer Defense: Red-Teaming Evaluation of ",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5137,
+     "domain": "paper",
+     "title": "On Understanding, Identifying, and Mitigating Vulnerabilities in Agent",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5121,
+     "domain": "paper",
+     "title": "Ajar: Measuring Open Privilege in Agent Defenses",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5116,
+     "domain": "paper",
+     "title": "Self-Evolving Defense: Continual Security Policy Learning for LLM Agen",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "D",
+   "q": "用合成数据优化 AI 智能体攻击的研究",
+   "where": "{'domain': 'paper'}",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6595,
+   "embed_s": 0.48,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6595,
+     "domain": "paper",
+     "title": "Optimizing AI Agent Attacks With Synthetic Data",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5946,
+     "domain": "paper",
+     "title": "Breaking MCP with Function Hijacking Attacks: Novel Threats for Functi",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.592,
+     "domain": "paper",
+     "title": "Connecting the Dots in Agentic AI Security: A Cross-Dimensional Threat",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5865,
+     "domain": "paper",
+     "title": "SkillSieve: A Hierarchical Triage Framework for Detecting Malicious AI",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5854,
+     "domain": "paper",
+     "title": "AgentLSD: Evaluating AI Security Agents Under Adversarial Task Contami",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5853,
+     "domain": "paper",
+     "title": "BountyBench: Dollar Impact of AI Agent Attackers and Defenders on Real",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5851,
+     "domain": "paper",
+     "title": "CySecBench: Generative AI-based CyberSecurity-focused Prompt Dataset f",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5838,
+     "domain": "paper",
+     "title": "AutoDAN-Reasoning: Enhancing Strategies Exploration based Jailbreak At",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "D",
+   "q": "jailbreak 越狱模糊测试相关的学术工作",
+   "where": "{'domain': 'paper'}",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.7266,
+   "embed_s": 0.49,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7266,
+     "domain": "paper",
+     "title": "TurboFuzzLLM: Turbocharging Mutation-based Fuzzing for Effectively Jai",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.7092,
+     "domain": "paper",
+     "title": "EasyJailbreak: A Unified Framework for Jailbreaking Large Language Mod",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.7087,
+     "domain": "paper",
+     "title": "Jailbreaking Large Language Models Against Moderation Guardrails via C",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.7031,
+     "domain": "paper",
+     "title": "Adjacent Words, Divergent Intents: Jailbreaking Large Language Models ",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.7011,
+     "domain": "paper",
+     "title": "Self-Instruct Few-Shot Jailbreaking: Decompose the Attack into Pattern",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.6997,
+     "domain": "paper",
+     "title": "Jailbreaking Large Language Models Through Content Concretization",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.698,
+     "domain": "paper",
+     "title": "Jailbreaking Large Language Models through Iterative Tool-Disguised At",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.6975,
+     "domain": "paper",
+     "title": "Hide Your Malicious Goal Into Benign Narratives: Jailbreak Large Langu",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "D",
+   "q": "联邦学习模型投毒的论文有哪些？",
+   "where": "{'domain': 'paper'}",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6098,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6098,
+     "domain": "paper",
+     "title": "XFED: Non-Collusive Model Poisoning Attack Against Byzantine-Robust Fe",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5904,
+     "domain": "paper",
+     "title": "FedUP: Efficient Pruning-based Federated Unlearning for Model Poisonin",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5892,
+     "domain": "paper",
+     "title": "On Evaluating the Poisoning Robustness of Federated Learning under Loc",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5879,
+     "domain": "paper",
+     "title": "Graph Representation-based Model Poisoning on Federated Large Language",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5848,
+     "domain": "paper",
+     "title": "EnCAgg: Enhanced Clustering Aggregation for Robust Federated Learning ",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5832,
+     "domain": "paper",
+     "title": "Performance Guaranteed Poisoning Attacks in Federated Learning: A Slid",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5821,
+     "domain": "paper",
+     "title": "Model Poisoning Against Federated Model Adaptation with Chain of Bit-F",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5814,
+     "domain": "paper",
+     "title": "A Client-level Assessment of Collaborative Backdoor Poisoning in Non-I",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "F",
+   "q": "提示注入攻防的学术研究进展",
+   "where": "{'domain': 'paper'}",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.7608,
+   "embed_s": 0.5,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7608,
+     "domain": "paper",
+     "title": "A Multi-Model Hybrid Defense Approach Against White-box Adversarial At",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.759,
+     "domain": "paper",
+     "title": "CySecBench: Generative AI-based CyberSecurity-focused Prompt Dataset f",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.7552,
+     "domain": "paper",
+     "title": "Comparative Insights on Adversarial Machine Learning from Industry and",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.7518,
+     "domain": "paper",
+     "title": "A Systematic Literature Review on LLM Defenses Against Prompt Injectio",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.7504,
+     "domain": "paper",
+     "title": "Performance Guaranteed Poisoning Attacks in Federated Learning: A Slid",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.7503,
+     "domain": "paper",
+     "title": "Acoda: Adversarial Code Obfuscation for Defending against LLM-based An",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.7492,
+     "domain": "paper",
+     "title": "Graph Representation-based Model Poisoning on the Heterogeneous Intern",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.7483,
+     "domain": "paper",
+     "title": "Bypassing LLM Guardrails: An Empirical Analysis of Evasion Attacks aga",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "G",
+   "q": "2026 年 9 月下旬的每日 AI 安全资讯都报了什么？",
+   "where": "{'domain': 'daily'}",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.5939,
+   "embed_s": 0.53,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.5939,
+     "domain": "daily",
+     "title": "每日 AI 安全资讯（2026-09-26）",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "G",
+   "q": "MCP tool poisoning attack 的原理与案例",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [
+    "mcp"
+   ],
+   "top1_score": 0.7388,
+   "embed_s": 0.48,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.7388,
+     "domain": "article",
+     "title": "实战｜MCP 工具生态的\"幽灵克隆\"——供应链投毒的新战场",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.7202,
+     "domain": "article",
+     "title": "MCP工具链安全：从描述投毒到凭据窃取的完整攻击路径剖析",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.7199,
+     "domain": "article",
+     "title": "从单点投毒到系统沦陷：多智能体信任链攻击的五种实战手法",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.7156,
+     "domain": "article",
+     "title": "给AI下毒：我在PyPI投毒了3个MCP工具包的测试经历",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.7145,
+     "domain": "article",
+     "title": "LLM Agent工具调用安全：从函数调用机制到MCP协议攻防的深度剖析",
+     "cve_ids": "CVE-2025-6514"
+    },
+    {
+     "rank": 6,
+     "score": 0.7141,
+     "domain": "article",
+     "title": "当3+5=？成为攻击入口：MCP 工具投毒与链式滥用攻击场景复盘",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.7129,
+     "domain": "article",
+     "title": "MCP 也会被投毒：恶意工具描述如何诱导 Agent 主动调用危险能力",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.7108,
+     "domain": "article",
+     "title": "MCP特性及攻击面",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "G",
+   "q": "LLM chain-of-thought 泄露会带来什么风险？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.55,
+   "embed_s": 0.48,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.55,
+     "domain": "article",
+     "title": "大模型编排框架攻防(以LangChain为例)",
+     "cve_ids": "CVE-2023-29374,CVE-2023-36258,CVE-2023-44467,CVE-2023-46229,"
+    },
+    {
+     "rank": 2,
+     "score": 0.5206,
+     "domain": "article",
+     "title": "AI安全风险TOP 10: OWASP GenAI LLM TOP 10 2026 中文民间翻译",
+     "cve_ids": "CVE-2019-20634,CVE-2023-48022,CVE-2024-23496,CVE-2024-37032,"
+    },
+    {
+     "rank": 3,
+     "score": 0.5132,
+     "domain": "article",
+     "title": "大模型内容威胁-漏洞分析及防御实操总结",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5107,
+     "domain": "article",
+     "title": "暴露的端点如何扩大LLM基础设施风险",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5056,
+     "domain": "article",
+     "title": "大模型系统安全实际案例及分析方法",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.4975,
+     "domain": "article",
+     "title": "\"lc\"键漏洞：LangChain高危缺陷（CVE-2025-68664）使提示注入攻击可窃取机密",
+     "cve_ids": "CVE-2025-68664"
+    },
+    {
+     "rank": 7,
+     "score": 0.4869,
+     "domain": "article",
+     "title": "LLM安全护栏攻防对抗：从绕过机制到纵深防御的系统性研究",
+     "cve_ids": "CVE-2025-32711"
+    },
+    {
+     "rank": 8,
+     "score": 0.4849,
+     "domain": "article",
+     "title": "大语言模型安全之攻击面初探",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "G",
+   "q": "AI security governance best practices 有哪些参考？",
+   "where": "None",
+   "ok": true,
+   "domain_ok": true,
+   "keyword_hit": [],
+   "top1_score": 0.6276,
+   "embed_s": 0.51,
+   "hits": [
+    {
+     "rank": 1,
+     "score": 0.6276,
+     "domain": "article",
+     "title": "OWASP发布生成式AI安全治理清单",
+     "cve_ids": ""
+    },
+    {
+     "rank": 2,
+     "score": 0.5874,
+     "domain": "article",
+     "title": "我对人工智能安全风险与治理的思考",
+     "cve_ids": ""
+    },
+    {
+     "rank": 3,
+     "score": 0.5873,
+     "domain": "article",
+     "title": "Secure AI Adoption: Close the Governance Gap to Accelerate AI in the  ",
+     "cve_ids": ""
+    },
+    {
+     "rank": 4,
+     "score": 0.5849,
+     "domain": "article",
+     "title": "人工智能代理时代的安全、风险与合规治理",
+     "cve_ids": ""
+    },
+    {
+     "rank": 5,
+     "score": 0.5757,
+     "domain": "article",
+     "title": "My Favorite Findings From the AI Security Decisions Report",
+     "cve_ids": ""
+    },
+    {
+     "rank": 6,
+     "score": 0.5742,
+     "domain": "article",
+     "title": "大模型部署安全建设指南",
+     "cve_ids": ""
+    },
+    {
+     "rank": 7,
+     "score": 0.5728,
+     "domain": "article",
+     "title": "AI Governance on AWS: The Runtime Control Loop: AI Governance on AWS: ",
+     "cve_ids": ""
+    },
+    {
+     "rank": 8,
+     "score": 0.5703,
+     "domain": "article",
+     "title": "AI模型水印与后门检测：构建可信赖的AI供应链",
+     "cve_ids": ""
+    }
+   ]
+  },
+  {
+   "cat": "E点查",
+   "q": "CVE-2026-59822 是什么？",
+   "ok": true,
+   "card": {
+    "cve_id": "CVE-2026-59822",
+    "cvss": 8.2,
+    "severity": "HIGH",
+    "kev": 1,
+    "epss": "0.00836",
+    "summary_zh": "CVE-2026-59822：LiteLLM代理服务器存在认证绕过漏洞，攻击者可利用伪造的Authorization头触发OAuth2回退路径，绕过LiteLLM密钥验证，导致请求无需有效密钥即可访问MCP工具。",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59822",
+    "title": "CVE-2026-59822 [HIGH]: LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. Prio"
+   }
+  },
+  {
+   "cat": "E点查",
+   "q": "CVE-2025-15379 是什么？",
+   "ok": true,
+   "card": {
+    "cve_id": "CVE-2025-15379",
+    "cvss": 10.0,
+    "severity": "CRITICAL",
+    "kev": 0,
+    "epss": "0.02359",
+    "summary_zh": "MLflow模型服务容器初始化代码存在命令注入漏洞，影响版本3.8.0，可导致攻击者执行任意命令。",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15379",
+    "title": "CVE-2025-15379 [CRITICAL]: A command injection vulnerability exists in MLflow's model serving container initializatio"
+   }
+  },
+  {
+   "cat": "E点查",
+   "q": "CVE-2025-71338 是什么？",
+   "ok": true,
+   "card": {
+    "cve_id": "CVE-2025-71338",
+    "cvss": 10.0,
+    "severity": "CRITICAL",
+    "kev": 0,
+    "epss": "0.01157",
+    "summary_zh": "CVE-2025-71338漏洞，Flowise through 2.2.7版本文档存储加载端点路径段清理不当，允许未认证攻击者写入存储目录外的文件，攻击者可利用目录遍历覆盖启动时加载的应用程序文件，实现远程代码执行。",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71338",
+    "title": "CVE-2025-71338 [CRITICAL]: Flowise through 2.2.7 fails to sanitize path segments in the document-store loader endpoin"
+   }
+  },
+  {
+   "cat": "E拒答",
+   "q": "CVE-2024-3094 是什么？",
+   "ok": true,
+   "honest_refusal": true
+  },
+  {
+   "cat": "E拒答",
+   "q": "CVE-2099-1111 是什么？",
+   "ok": true,
+   "honest_refusal": true
+  }
+ ]
+}

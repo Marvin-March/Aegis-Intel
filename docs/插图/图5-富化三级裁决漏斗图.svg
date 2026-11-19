@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="620" viewBox="0 0 1180 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2937"/>
+    </marker>
+  </defs>
+  <rect width="1180" height="620" fill="#ffffff"/>
+  <text x="590" y="34" text-anchor="middle" fill="#111827" font-size="17" font-weight="bold">情报富化三级裁决管线：逐级收窄，产出确定性结构化知识</text>
+
+  <!-- 漏斗左侧 -->
+  <!-- 全量 -->
+  <polygon points="90,70 590,70 540,160 140,160" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="340" y="105" text-anchor="middle" fill="#111827" font-size="14" font-weight="bold">全量记录 31,045 条</text>
+  <text x="340" y="130" text-anchor="middle" fill="#374151" font-size="11">CVE / 文章 / 论文 / 通告（7 类采集器持续汇入）</text>
+
+  <!-- AI 粗筛 -->
+  <polygon points="150,180 540,180 500,268 190,268" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="345" y="212" text-anchor="middle" fill="#111827" font-size="14" font-weight="bold">第一级 · AI 信号粗筛</text>
+  <text x="345" y="235" text-anchor="middle" fill="#1f2937" font-size="11">规则词表 + 向量信号 + LLM 复核（llm_ai_related）</text>
+  <text x="345" y="255" text-anchor="middle" fill="#1f3a5f" font-size="12" font-weight="bold">→ AI 相关漏洞 1,598 条</text>
+
+  <!-- L1 -->
+  <polygon points="200,288 500,288 462,376 238,376" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="350" y="318" text-anchor="middle" fill="#111827" font-size="14" font-weight="bold">第二级 · L1 确定性富化</text>
+  <text x="350" y="341" text-anchor="middle" fill="#1f2937" font-size="11">正则/词表解析：组件、受影响版本、CPE 匹配</text>
+  <text x="350" y="361" text-anchor="middle" fill="#1f3a5f" font-size="12" font-weight="bold">→ CPE 资产覆盖 8,700+ · 零幻觉（纯规则）</text>
+
+  <!-- L3 LLM -->
+  <polygon points="250,396 448,396 415,484 283,484" fill="#f5f6f8" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="365" y="426" text-anchor="middle" fill="#111827" font-size="14" font-weight="bold">第三级 · LLM 深度抽取</text>
+  <text x="365" y="448" text-anchor="middle" fill="#1f2937" font-size="11">DeepSeek：摘要/攻击类型/实体</text>
+  <text x="365" y="469" text-anchor="middle" fill="#1f3a5f" font-size="12" font-weight="bold">→ 富化率 97.7%</text>
+
+  <text x="340" y="530" text-anchor="middle" fill="#374151" font-size="11.5">逐级收窄：级间产物落库（vuln_meta 字段级幂等，空值=待处理）</text>
+  <text x="340" y="550" text-anchor="middle" fill="#374151" font-size="11.5">只处理新增条目 · 失败可单独重跑（--only 步级断点）</text>
+
+  <!-- 右侧产出框 -->
+  <rect x="640" y="70" width="510" height="270" rx="10" fill="#fff" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="895" y="100" text-anchor="middle" fill="#111827" font-size="15" font-weight="bold">产出：enrich_json 结构化知识（1,562 条）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="662" y="118" width="230" height="44" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="777" y="136" text-anchor="middle" fill="#111827" font-weight="bold">summary_zh 中文摘要</text>
+    <text x="777" y="153" text-anchor="middle" fill="#374151" font-size="10.5">技术机制 + 危害一句话</text>
+    <rect x="908" y="118" width="230" height="44" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="1023" y="136" text-anchor="middle" fill="#111827" font-weight="bold">attack_type 攻击类型</text>
+    <text x="1023" y="153" text-anchor="middle" fill="#374151" font-size="10.5">归一 15 类（RCE/DoS/认证绕过…）</text>
+    <rect x="662" y="172" width="230" height="44" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="777" y="190" text-anchor="middle" fill="#111827" font-weight="bold">实体五元组</text>
+    <text x="777" y="207" text-anchor="middle" fill="#374151" font-size="10.5">厂商/产品/版本/漏洞类型/攻击向量</text>
+    <rect x="908" y="172" width="230" height="44" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="1023" y="190" text-anchor="middle" fill="#111827" font-weight="bold">修复建议 remediation</text>
+    <text x="1023" y="207" text-anchor="middle" fill="#374151" font-size="10.5">升级版本 / 缓解措施</text>
+    <rect x="662" y="226" width="230" height="44" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="777" y="244" text-anchor="middle" fill="#111827" font-weight="bold">CPE 受影响资产</text>
+    <text x="777" y="261" text-anchor="middle" fill="#374151" font-size="10.5">cpe:2.3 标准串 · 8,700+ 条</text>
+    <rect x="908" y="226" width="230" height="44" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="1023" y="244" text-anchor="middle" fill="#111827" font-weight="bold">利用状态 exploitation</text>
+    <text x="1023" y="261" text-anchor="middle" fill="#374151" font-size="10.5">KEV / EPSS / 野外利用情报</text>
+  </g>
+  <text x="895" y="305" text-anchor="middle" fill="#111827" font-size="12" font-weight="bold">质量闸门：fabricate_check 编号校验 · 反爬拦截页拒收 · 字段级抽检</text>
+
+  <!-- 缝合表产出 -->
+  <rect x="640" y="360" width="510" height="150" rx="10" fill="#fff" stroke="#1f3a5f" stroke-width="1.5"/>
+  <text x="895" y="390" text-anchor="middle" fill="#111827" font-size="15" font-weight="bold">缝合表：跨文档确定性关联（非向量硬凑）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="662" y="408" width="230" height="72" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="777" y="434" text-anchor="middle" fill="#111827" font-weight="bold">article_cve 文章↔CVE</text>
+    <text x="777" y="454" text-anchor="middle" fill="#374151" font-size="10.5">767 条 · /related 实时反查</text>
+    <text x="777" y="470" text-anchor="middle" fill="#374151" font-size="10.5">"哪些文章分析过该漏洞"精确命中</text>
+    <rect x="908" y="408" width="230" height="72" rx="5" fill="#f5f6f8" stroke="#1f3a5f"/>
+    <text x="1023" y="434" text-anchor="middle" fill="#111827" font-weight="bold">paper_link 论文↔组件</text>
+    <text x="1023" y="454" text-anchor="middle" fill="#374151" font-size="10.5">134 条 · 研究视角补充</text>
+    <text x="1023" y="470" text-anchor="middle" fill="#374151" font-size="10.5">点查回答自动携带论文线索</text>
+  </g>
+
+  <!-- 底部价值说明 -->
+  <rect x="90" y="560" width="1060" height="44" rx="6" fill="#f5f6f8" stroke="#f5f6f8"/>
+  <text x="620" y="587" text-anchor="middle" fill="#111827" font-size="11.5">设计原则：能用确定性规则的不用 LLM（CPE/版本零幻觉）；必须用 LLM 的字段全部过编号校验与质量闸门——富化产物是问答可信度的地基</text>
+</svg>
