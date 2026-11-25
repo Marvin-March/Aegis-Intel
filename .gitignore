@@ -65,3 +65,6 @@ htmlcov/
 
 # Git temp files
 *.tmp.*
+
+# Build tool temp files (Vite / Tailwind config hot-reload)
+*.timestamp-*.mjs

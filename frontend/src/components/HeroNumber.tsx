@@ -6,12 +6,26 @@ interface Props {
   value: number;
   suffix?: string;
   duration?: number;
-  /** 入场错峰延迟 ms */
   delay?: number;
+  accent?: 'default' | 'cyan' | 'danger' | 'success';
 }
 
-export default function HeroNumber({ label, value, suffix = '', duration = 2000, delay = 0 }: Props) {
-  const [displayValue, setDisplayValue] = useState(0);
+const accentText: Record<NonNullable<Props['accent']>, string> = {
+  default: 'text-soc-text-primary',
+  cyan: 'text-soc-primary',
+  danger: 'text-red-400',
+  success: 'text-emerald-400',
+};
+
+export default function HeroNumber({
+  label,
+  value,
+  suffix = '',
+  duration = 650,
+  delay = 0,
+  accent = 'default',
+}: Props) {
+  const [displayValue, setDisplayValue] = useState(value);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,19 +35,14 @@ export default function HeroNumber({ label, value, suffix = '', duration = 2000,
   }, [value, duration, delay]);
 
   return (
-    <div
-      className="group relative bg-soc-panel border border-soc-border p-6 text-center soc-lift animate-fade-slide-in"
-      style={delay > 0 ? { animationDelay: `${delay}ms` } : undefined}
-    >
-      {/* 顶部金线：hover 时展开 */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-soc-border overflow-hidden">
-        <div className="h-full bg-soc-primary w-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-      </div>
-      <p className="text-3xl font-mono text-soc-text-primary mb-2 tracking-tight">
+    <div className="aegis-surface px-3.5 py-3 hover:border-soc-border-default transition-colors">
+      <p className="text-[11px] text-soc-text-muted truncate">{label}</p>
+      <p
+        className={`mt-1 text-xl font-mono font-semibold tracking-tight tabular-nums ${accentText[accent]}`}
+      >
         {displayValue.toLocaleString()}
-        <span className="text-soc-primary/80 text-xl ml-0.5">{suffix}</span>
+        {suffix && <span className="text-xs font-normal text-soc-text-muted ml-0.5">{suffix}</span>}
       </p>
-      <p className="text-[11px] tracking-[0.2em] text-soc-text-muted font-mono">{label}</p>
     </div>
   );
 }

@@ -4,8 +4,8 @@ import { typewriter, scrollToHighlight } from '../utils/animation';
 interface Props {
   text: string;
   speed?: number;
-  /** 动画开关：仅本轮最新消息 true（打字机）；历史消息 false → 整段直出不重播（K1） */
   animated?: boolean;
+  onCiteClick?: (type: 'hit' | 'card', index: number) => void;
   onComplete?: () => void;
 }
 
@@ -17,12 +17,6 @@ type Block =
   | { type: 'code'; items: string[] }
   | { type: 'table'; rows: string[][] };
 
-// 行级 Markdown 解析（K6 + 2026-10-15 补标题/代码块 + 2026-10-16 补表格/无空格标题）：
-// - 行首 - / • → 无序列表；行首 数字. → 有序列表
-// - 行首 1-3 个 # → 标题（### → h3；空格可有可无——模型中文输出惯用 "##一、" 无空格）
-// - 成对 ``` 围栏 → 代码块（打字机誊写时保留原样，渲染时才剥围栏）
-// - | 开头的连续行 → 表格（|---| 分隔行剔除）
-// shift-enter 语义：代码块内部（行非空即续，避免中途 ``` 错断）
 function parseBlocks(text: string): Block[] {
   const blocks: Block[] = [];
   const lines = text.split('\n');
@@ -30,7 +24,6 @@ function parseBlocks(text: string): Block[] {
   while (i < lines.length) {
     const raw = lines[i];
     const line = raw.trim();
-    // 代码块开围栏
     if (line.startsWith('```')) {
       const inner: string[] = [];
       i++;
@@ -38,17 +31,16 @@ function parseBlocks(text: string): Block[] {
         inner.push(lines[i]);
         i++;
       }
-      i++; // 跳过闭围栏
+      i++;
       blocks.push({ type: 'code', items: inner });
       continue;
     }
-    // markdown 表格（2026-10-16）：| 开头的连续行收进一个块，|---|:--:| 分隔行剔除
     if (line.startsWith('|') && line.endsWith('|')) {
       const rows: string[][] = [];
       while (i < lines.length) {
         const tl = lines[i].trim();
         if (!tl.startsWith('|')) break;
-        if (!/^\|[\s:|-]+\|$/.test(tl)) {          // 纯 |:- 空格 = 分隔行，跳过
+        if (!/^\|[\s:|-]+\|$/.test(tl)) {
           const inner = tl.slice(1, tl.endsWith('|') ? -1 : undefined);
           rows.push(inner.split('|').map((c) => c.trim()));
         }
@@ -72,8 +64,8 @@ function parseBlocks(text: string): Block[] {
       const last = blocks[blocks.length - 1];
       if (last && last.type === 'ul') last.items.push(item);
       else blocks.push({ type: 'ul', items: [item] });
-    } else if (/^\d+[.、)]\s*/.test(line)) {
-      const item = line.replace(/^\d+[.、)]\s*/, '');
+    } else if (/^\d+[.、]\s*/.test(line)) {
+      const item = line.replace(/^\d+[.、]\s*/, '');
       const last = blocks[blocks.length - 1];
       if (last && last.type === 'ol') last.items.push(item);
       else blocks.push({ type: 'ol', items: [item] });
@@ -85,9 +77,8 @@ function parseBlocks(text: string): Block[] {
   return blocks;
 }
 
-// 裸 URL 自动转链接（拒答话术里的 NVD 链接可点）；导出供拒答横幅复用
 export function renderTextWithUrl(segment: string, keyPrefix: string) {
-  const urlParts = segment.split(/(https?:\/\/[^\s)\]）】"']+)/g);
+  const urlParts = segment.split(/(https?:\/\/[^\s\])】"']+)/g);
   if (urlParts.length === 1) return segment;
   return urlParts.map((seg, ui) => {
     const key = `${keyPrefix}-u${ui}`;
@@ -98,7 +89,7 @@ export function renderTextWithUrl(segment: string, keyPrefix: string) {
           href={seg}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-soc-primary hover:text-cyan-300 break-all"
+          className="text-sky-300 hover:underline break-all"
         >
           {seg}
         </a>
@@ -108,8 +99,11 @@ export function renderTextWithUrl(segment: string, keyPrefix: string) {
   });
 }
 
-// 行内解析：[n]/[卡n] 双引用 + **加粗** + `行内代码` + 裸 URL
-function renderInline(content: string, keyPrefix: string) {
+function renderInline(
+  content: string,
+  keyPrefix: string,
+  onCiteClick?: (type: 'hit' | 'card', index: number) => void
+) {
   const parts = content.split(/(\[\d+\]|\[卡\d+\])/g);
   return parts.map((part, idx) => {
     const key = `${keyPrefix}-${idx}`;
@@ -120,8 +114,12 @@ function renderInline(content: string, keyPrefix: string) {
       return (
         <button
           key={key}
-          onClick={() => scrollToHighlight(`hit-${citationIndex}`)}
-          className="inline-flex items-center justify-center w-[18px] h-[18px] mx-0.5 text-[10px] font-mono bg-soc-primary/15 text-soc-primary hover:bg-soc-primary hover:text-soc-bg border border-soc-primary/50 transition-all cursor-pointer align-middle"
+          type="button"
+          onClick={() =>
+            onCiteClick ? onCiteClick('hit', citationIndex) : scrollToHighlight(`hit-${citationIndex}`)
+          }
+          title={`查看检索证据 [${hitMatch[1]}]`}
+          className="inline-flex items-center justify-center min-w-[19px] h-[18px] px-1 mx-0.5 rounded-md bg-sky-500/20 border border-sky-400/35 text-sky-300 hover:bg-sky-400 hover:text-slate-950 text-[10px] font-mono tabular-nums align-baseline transition-colors"
         >
           {hitMatch[1]}
         </button>
@@ -132,14 +130,18 @@ function renderInline(content: string, keyPrefix: string) {
       return (
         <button
           key={key}
-          onClick={() => scrollToHighlight(`card-${cardIndex}`)}
-          className="inline-flex items-center justify-center h-[18px] px-1.5 mx-0.5 text-[10px] font-mono bg-purple-500/15 text-purple-300 hover:bg-purple-500/80 hover:text-white border border-purple-500/50 transition-all cursor-pointer align-middle"
+          type="button"
+          onClick={() =>
+            onCiteClick ? onCiteClick('card', cardIndex) : scrollToHighlight(`card-${cardIndex}`)
+          }
+          title={`查看漏洞卡片 [卡${cardMatch[1]}]`}
+          className="inline-flex items-center justify-center h-[18px] px-1.5 mx-0.5 rounded-md bg-indigo-500/20 border border-indigo-400/35 text-indigo-200 hover:bg-indigo-400 hover:text-slate-950 text-[10px] font-mono tabular-nums align-baseline transition-colors"
         >
           卡{cardMatch[1]}
         </button>
       );
     }
-    // 非引用段：先剥 `` 行内代码，再对普通段处理 **加粗** 与 裸 URL
+
     const codeParts = part.split(/(`[^`]+`)/g);
     return (
       <span key={key}>
@@ -149,7 +151,7 @@ function renderInline(content: string, keyPrefix: string) {
             return (
               <code
                 key={cKey}
-                className="px-1.5 py-0.5 mx-0.5 bg-soc-hover border border-soc-border font-mono text-[12px] text-soc-primary align-middle"
+                className="px-1.5 py-0.5 mx-0.5 rounded-md bg-white/[0.07] font-mono text-[12.5px] text-sky-300"
               >
                 {cp.slice(1, -1)}
               </code>
@@ -166,7 +168,7 @@ function renderInline(content: string, keyPrefix: string) {
                 const bKey = `${cKey}-b${bidx}`;
                 if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
                   return (
-                    <strong key={bKey} className="text-soc-text-primary font-semibold">
+                    <strong key={bKey} className="text-white font-semibold">
                       {renderTextWithUrl(bp.slice(2, -2), bKey)}
                     </strong>
                   );
@@ -183,14 +185,17 @@ function renderInline(content: string, keyPrefix: string) {
 
 const cursor = <span className="soc-caret" />;
 
-export default function AnswerText({ text, speed = 15, animated = true, onComplete }: Props) {
-  // 历史消息首帧即全文（避免先空后全的一帧闪烁）；动画消息从空开始
+export default function AnswerText({
+  text,
+  speed = 12,
+  animated = true,
+  onCiteClick,
+  onComplete,
+}: Props) {
   const [displayText, setDisplayText] = useState(() => (animated ? '' : text));
-  // 速度在挂载时定格，避免演示中途退出导致打字机重启
   const [spd] = useState(speed);
 
   useEffect(() => {
-    // 历史消息：整段直出、不再重播打字动画（K1 本轮最新才动画）
     if (!animated) {
       setDisplayText(text);
       return;
@@ -203,59 +208,54 @@ export default function AnswerText({ text, speed = 15, animated = true, onComple
   const done = displayText.length >= text.length;
 
   return (
-    <div className="text-soc-text-primary leading-relaxed space-y-2">
+    <div className="text-[14.5px] text-slate-200 leading-[1.8] space-y-2.5">
       {blocks.map((b, bi) => {
         const isLast = bi === blocks.length - 1;
         if (b.type === 'p') {
           return (
             <p key={bi}>
-              {renderInline(b.items[0], `b${bi}`)}
+              {renderInline(b.items[0], `b${bi}`, onCiteClick)}
               {isLast && !done && cursor}
             </p>
           );
         }
         if (b.type === 'h') {
-          const level = b.level;
+          const cls =
+            b.level === 1
+              ? 'text-base font-semibold text-white pt-2'
+              : b.level === 2
+                ? 'text-[15px] font-semibold text-white pt-2'
+                : 'text-[14px] font-semibold text-sky-300 pt-1.5';
           return (
-            <p key={bi} className="flex items-baseline gap-2">
-              <span className="text-soc-primary/90 font-semibold tracking-wide">
-                {level === 1 ? '#' : level === 2 ? '##' : '###'}
-              </span>
-              <span
-                className={
-                  level === 1
-                    ? 'text-[15px] font-semibold text-soc-text-primary'
-                    : level === 2
-                    ? 'text-[14px] font-semibold text-soc-text-primary'
-                    : 'text-[13px] font-semibold text-soc-text-primary/95'
-                }
-              >
-                {renderInline(b.items[0], `h${bi}`)}
-              </span>
+            <h4 key={bi} className={cls}>
+              {renderInline(b.items[0], `h${bi}`, onCiteClick)}
               {isLast && !done && cursor}
-            </p>
+            </h4>
           );
         }
         if (b.type === 'table') {
           const [head, ...body] = b.rows;
           return (
-            <div key={bi} className="overflow-x-auto">
-              <table className="w-full text-[12.5px] border border-soc-border">
+            <div key={bi} className="overflow-x-auto rounded-xl border border-white/[0.08]">
+              <table className="w-full text-xs">
                 <thead>
-                  <tr className="bg-soc-hover/60">
+                  <tr className="bg-white/[0.03] border-b border-white/[0.08]">
                     {head.map((c, ci) => (
-                      <th key={ci} className="border-b border-soc-border px-2.5 py-1.5 text-left font-semibold text-soc-primary/90">
-                        {renderInline(c, `t${bi}h${ci}`)}
+                      <th
+                        key={ci}
+                        className="px-3 py-2 text-left font-semibold text-white whitespace-nowrap"
+                      >
+                        {renderInline(c, `t${bi}h${ci}`, onCiteClick)}
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-white/[0.05]">
                   {body.map((r, ri) => (
-                    <tr key={ri} className="border-b border-soc-border/40 last:border-b-0">
+                    <tr key={ri} className="hover:bg-white/[0.025]">
                       {r.map((c, ci) => (
-                        <td key={ci} className="px-2.5 py-1.5 align-top text-soc-text-secondary">
-                          {renderInline(c, `t${bi}r${ri}c${ci}`)}
+                        <td key={ci} className="px-3 py-2 align-top text-slate-300">
+                          {renderInline(c, `t${bi}r${ri}c${ci}`, onCiteClick)}
                         </td>
                       ))}
                     </tr>
@@ -270,11 +270,11 @@ export default function AnswerText({ text, speed = 15, animated = true, onComple
           return (
             <pre
               key={bi}
-              className="bg-soc-bg/80 border border-soc-border p-3 overflow-x-auto text-[12.5px] leading-relaxed text-soc-text-secondary font-mono whitespace-pre"
+              className="rounded-xl bg-black/50 border border-white/[0.08] p-3.5 overflow-x-auto text-xs leading-relaxed text-sky-100 font-mono"
             >
               {b.items.map((ln, li) => (
                 <span key={li} className="block">
-                  {ln || ' '}
+                  {ln || ' '}
                 </span>
               ))}
               {isLast && !done && cursor}
@@ -285,11 +285,15 @@ export default function AnswerText({ text, speed = 15, animated = true, onComple
         return (
           <Tag
             key={bi}
-            className={`pl-5 space-y-1 ${b.type === 'ul' ? 'list-disc' : 'list-decimal'}`}
+            className={`pl-5 space-y-1 text-slate-300 ${
+              b.type === 'ul'
+                ? 'list-disc marker:text-slate-500'
+                : 'list-decimal marker:text-slate-500'
+            }`}
           >
             {b.items.map((it, ii) => (
               <li key={ii}>
-                {renderInline(it, `b${bi}-${ii}`)}
+                {renderInline(it, `b${bi}-${ii}`, onCiteClick)}
                 {isLast && ii === b.items.length - 1 && !done && cursor}
               </li>
             ))}

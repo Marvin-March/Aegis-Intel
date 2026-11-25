@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CheckCircle2, AlertCircle } from 'lucide-react';
 
-// ============ 应用内 Toast（替代原生 alert）============
-
 export interface ToastItem {
   id: number;
   kind: 'success' | 'error';
@@ -41,26 +39,23 @@ export default function ToastContainer() {
   }, []);
 
   return (
-    <div className="fixed top-5 right-5 z-[60] space-y-2 max-w-sm">
+    <div className="fixed top-4 right-4 z-[60] space-y-2 max-w-sm">
       {items.map((t) => (
         <div
           key={t.id}
-          className={`animate-toast-in relative flex items-start gap-2 px-4 py-3 border bg-soc-panel shadow-lg text-sm ${
-            t.kind === 'success'
-              ? 'border-soc-success/40'
-              : 'border-soc-danger/40'
+          className={`animate-toast-in relative overflow-hidden flex items-start gap-2.5 px-3.5 py-2.5 rounded-md border bg-soc-elevated shadow-panel-md text-xs ${
+            t.kind === 'success' ? 'border-emerald-500/40' : 'border-red-500/40'
           }`}
         >
-          {/* 左侧状态色条 */}
           <span
-            className={`absolute left-0 top-0 bottom-0 w-[2px] ${
-              t.kind === 'success' ? 'bg-soc-success' : 'bg-soc-danger'
+            className={`absolute left-0 top-0 bottom-0 w-[3px] ${
+              t.kind === 'success' ? 'bg-emerald-400' : 'bg-red-400'
             }`}
           />
           {t.kind === 'success' ? (
-            <CheckCircle2 size={15} className="flex-shrink-0 mt-0.5 text-soc-success" />
+            <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5 text-emerald-400" />
           ) : (
-            <AlertCircle size={15} className="flex-shrink-0 mt-0.5 text-soc-danger" />
+            <AlertCircle size={14} className="flex-shrink-0 mt-0.5 text-red-400" />
           )}
           <span className="text-soc-text-primary leading-relaxed break-all">{t.message}</span>
         </div>
