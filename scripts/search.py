@@ -935,6 +935,12 @@ def search(query: str, domain: str | None = None, ai_only: bool = False, k: int 
         # 点查未命中：回落到向量检索该编号（双保险，可能命中文章正文里的引用）
         cid = ids[0]
         hits = vector_search(query, None, k)
+        # 只接受正文/元数据里真的出现该编号的块；否则任意假 CVE 都会被向量匹配到
+        # 无关漏洞，导致"诚实拒答"变成"拿别的卡硬答"。
+        cid_u = cid.upper()
+        hits = [h for h in hits
+                if cid_u in (h.get("text") or "").upper()
+                or cid_u in json.dumps(h.get("meta") or {}, ensure_ascii=False).upper()]
         if not hits:      # 回落也无块 → 交给 qa 层走"NVD 链接拒答"分支
             return {"route": f"sql点查未命中 {cid}", "hits": [], "cards": [], "point": None}
         return {"route": f"向量(点查未命中回落) {cid}",
