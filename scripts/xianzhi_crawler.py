@@ -194,6 +194,13 @@ class Store:
                 type=excluded.type, summary=excluded.summary, tags=excluded.tags,
                 status=CASE WHEN excluded.content_md='' THEN records.status
                             ELSE excluded.status END,
+                crawl_time=excluded.crawl_time
+            ON CONFLICT(id) DO UPDATE SET
+                content_md=CASE WHEN excluded.content_md='' THEN records.content_md
+                                ELSE excluded.content_md END,
+                type=excluded.type, summary=excluded.summary, tags=excluded.tags,
+                status=CASE WHEN excluded.content_md='' THEN records.status
+                            ELSE excluded.status END,
                 crawl_time=excluded.crawl_time""",
                       (rec["id"], rec["source"], rec_type, rec["url"], norm_url(rec["url"]),
                        rec["title"], rec.get("summary", ""), rec.get("category", ""),
