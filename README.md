@@ -1,5 +1,8 @@
 # Aegis Intel
 
+<div align="center"><img width="223" height="338" alt="图片" src="https://github.com/user-attachments/assets/49311826-f139-4223-bb43-2ced4bd83218" /></div>
+
+
 > 智能体驱动的 AI 安全知识情报系统：**情报监测 · 情报富化 · 智能问答**
 
 Aegis Intel 面向 AI 基础设施安全场景，把 NVD、CISA KEV、CNNVD、安全社区与学术论文中的异构情报，自动加工成可检索、可溯源的中文安全知识库，并通过带校验回环的问答智能体提供深度问答。
