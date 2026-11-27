@@ -1,0 +1,10 @@
+{
+  "security": {
+    "pypi": ["nemoguardrails", "llm-guard", "guardrails-ai", "garak"],
+    "npm": []
+  },
+  "ai-infrastructure": {
+    "pypi": ["vllm", "litellm", "langchain", "langchain-core", "llama-index", "llama-index-core", "mcp", "open-webui", "mlflow", "transformers", "sglang", "ollama", "dify-plugin"],
+    "npm": ["@modelcontextprotocol/sdk", "@modelcontextprotocol/server", "@modelcontextprotocol/client", "@langchain/core", "langchain"]
+  }
+}

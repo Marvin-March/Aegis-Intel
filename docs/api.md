@@ -28,3 +28,16 @@
 ## 鉴权
 
 本项目默认面向本地/内网部署，未内置鉴权。公网部署请在反向代理层增加认证、限流与 HTTPS。
+
+## 资产研判接口
+
+| 方法 | 路径 | 用途 |
+|---|---|---|
+| GET | `/api/triage/summary` | 资产、受影响项与工单总览（看板顶部数字） |
+| GET | `/api/triage/findings` | 受影响结论列表；支持 `priority` / `asset_id` / `limit` |
+| GET | `/api/triage/tickets` | 工单列表；支持按 `status` 筛选 |
+| GET | `/api/triage/ticket/{ticket_id}` | 单张工单：Markdown 正文、结构化证据、审批留痕 |
+| POST | `/api/triage/ticket/{ticket_id}/decision` | 审批决定；证据失效、审批人不符、缺意见都会被拒绝 |
+
+资产台账与工单表与情报库同库（`data/index.sqlite`），首次调用时自动建表。
+接入方式与状态机见 [asset-triage.md](asset-triage.md)。

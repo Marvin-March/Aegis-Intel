@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import os
 import re
+import json
 import subprocess
 import sys
 import time
@@ -24,13 +25,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from search import search, related_articles
 from qa import answer as qa_answer
+from asset_triage.store import TicketTransitionError
 
 _active_run: dict = {}     # 立即采集触发的运行：{run_id, started_at, popen}；结束后由报告文件接管展示
 
@@ -442,6 +444,104 @@ def collect(req: CollectRequest):
     _active_run.update({"run_id": run_id, "started_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         "ts": time.time()})
     return {"run_id": run_id, "started": True}
+
+
+class TicketDecision(BaseModel):
+    ticket_id: str
+    approver: str
+    approve: bool
+    comment: str = ""
+
+
+def _triage_store():
+    """资产研判表与情报库同库；用独立 Store 避免污染问答侧的只读连接。"""
+    from asset_triage import Store
+    return Store(Path(__file__).resolve().parent.parent / "data" / "index.sqlite")
+
+
+@app.get("/api/triage/summary")
+def triage_summary():
+    """资产暴露面总览：对接看板/工单页的顶部数字。"""
+    from collections import Counter
+    store = _triage_store()
+    try:
+        findings = store.list_findings()
+        tickets = store.list_tickets()
+        assets = store.list_assets(confirmed_only=True)
+        return {
+            "assets": len(assets),
+            "apps": len({a["app_name"] for a in assets if a["app_name"]}),
+            "findings": len(findings),
+            "by_priority": dict(Counter(f["priority"] for f in findings)),
+            "by_severity": dict(Counter(f["severity"] for f in findings)),
+            "by_component": dict(Counter(f["component"] for f in findings).most_common(10)),
+            "tickets": len(tickets),
+            "tickets_by_status": dict(Counter(t["status"] for t in tickets)),
+        }
+    finally:
+        store.close()
+
+
+@app.get("/api/triage/findings")
+def triage_findings(priority: str = "", asset_id: str = "", limit: int = 50):
+    """受影响结论列表。每条都带区间、修复版本、公告 URL 与证据指纹——前端证据抽屉直接渲染。"""
+    store = _triage_store()
+    try:
+        rows = store.list_findings(priority=priority, asset_id=asset_id)
+        return {"total": len(rows), "findings": rows[: max(1, min(limit, 200))]}
+    finally:
+        store.close()
+
+
+@app.get("/api/triage/tickets")
+def triage_tickets(status: str = ""):
+    """工单列表（含状态，供审批页分栏）。"""
+    store = _triage_store()
+    try:
+        rows = store.list_tickets(status=status)
+        for t in rows:
+            t["finding_ids"] = json.loads(t.get("finding_ids") or "[]")
+            t.pop("evidence_json", None)     # 列表不返回大字段
+        return {"total": len(rows), "tickets": rows}
+    finally:
+        store.close()
+
+
+@app.get("/api/triage/ticket/{ticket_id}")
+def triage_ticket(ticket_id: str):
+    """单张工单正文（Markdown）+ 结构化证据 + 审批留痕。"""
+    from asset_triage import tickets as tk
+    store = _triage_store()
+    try:
+        t = store.get_ticket(ticket_id)
+        if not t:
+            raise HTTPException(status_code=404, detail="工单不存在")
+        ids = json.loads(t.get("finding_ids") or "[]")
+        findings = store.findings_by_ids(ids)
+        events = store.ticket_events(ticket_id)
+        t["finding_ids"] = ids
+        return {"ticket": t, "findings": findings, "events": events,
+                "markdown": tk.render_markdown(t, findings, events)}
+    finally:
+        store.close()
+
+
+@app.post("/api/triage/ticket/{ticket_id}/decision")
+def triage_decide(ticket_id: str, req: TicketDecision):
+    """审批决定。证据失效、审批人不匹配、缺意见都由业务层拒绝并返回原因。"""
+    from asset_triage import tickets as tk
+    store = _triage_store()
+    try:
+        t = tk.decide(store, ticket_id, req.approver, req.approve, req.comment)
+        return {"ok": True, "ticket": t}
+    except TicketTransitionError as exc:
+        raise HTTPException(status_code=409, detail=str(exc))
+    except PermissionError as exc:
+        raise HTTPException(status_code=403, detail=str(exc))
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    finally:
+        store.close()
 
 
 # 前端静态托管（必须放在所有 API 路由注册之后，否则 mount("/") 会吞掉 /ask /health 等端点）：

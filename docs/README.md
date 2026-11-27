@@ -6,6 +6,7 @@
 | [deployment.md](deployment.md) | 环境、模型、数据、启动与定时任务 |
 | [api.md](api.md) | FastAPI 接口说明 |
 | [demo.md](demo.md) | 演示路径与示例问题 |
+| [asset-triage.md](asset-triage.md) | 资产暴露面研判：企业清单接入、版本区间比对、工单与审批 |
 | [enrichment.md](enrichment.md) | 三级处理管线、版本区间与缝合表 |
 | [quality.md](quality.md) | 数据质量与核查规范 |
 | [prompts.md](prompts.md) | 富化提示词模板 |
