@@ -1,6 +1,6 @@
 # Aegis Intel
 
-<div align="center"><img width="223" height="338" alt="图片" src="https://github.com/user-attachments/assets/49311826-f139-4223-bb43-2ced4bd83218" /></div>
+<div align="center"><img width="300" height="260" alt="Aegis Intel" src="assets/logo.png" /></div>
 
 
 > 智能体驱动的 AI 安全知识情报系统：**情报监测 · 情报富化 · 智能问答**
